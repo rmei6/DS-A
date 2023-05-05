@@ -21,7 +21,7 @@
 
 var minSteps = function(n) {
   const dp = new Array(n + 1).fill(0);
-  
+  //need to understand this
   dp[0] = 0;
   dp[1] = 0;
   

@@ -64,3 +64,4 @@ if __name__ == '__main__':
         else:
             exp = ','.join(args)
             eval(f'arr.{opCommand}({exp})')
+            #need to look into eval function

@@ -47,7 +47,8 @@ class Solution:
         # n = len(nums)
         #Bitmap Implementation
         n = len(nums)
-        
+
+        @cache
         def fn(mask, k): 
             """Return maximum score at kth operation with available numbers by mask."""
             if mask == 0: return 0 # no more numbers 

@@ -12,18 +12,18 @@
 # }) # -> 4
 
 #Attempt
-def largest_component(adjacency):
+def largest_component1(adjacency):
 	sets = []
-	for key in adjacency.keys()
-		Adj = adjacency[keys]
+	for key in adjacency.keys():
+		Adj = adjacency[key]
 		InSet = False
 		for group in sets:
 			if(key in group):
-				group.update(item)
+				group.update(Adj)
 				InSet = True
-				Break
+				break
 		if(InSet == False):
-			new_set = Set([key] + Adj)
+			new_set = set([key] + Adj)
 			sets.append(new_set)
 	longest = 0
 	for group in sets:

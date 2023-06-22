@@ -19,3 +19,5 @@ def maxPosPrefixes(arr):
 
     # Return the maximum number of positive prefixes
     return res
+
+#hackerrank

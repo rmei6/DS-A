@@ -3,15 +3,18 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
+from typing import Optional
+from typing import ListNode
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
 		    dummy = ListNode(None, head)
-		    prev = dummy
+        prev = dummy
 		    curr = head
 		    while(curr and curr.next):
-				prev.next = cur.next
-				    cur.next = cur.next.next
-				    prev.next.next = cur
-				    prev = cur
-				    cur = cur.next
+						prev.next = curr.next
+				    curr.next = curr.next.next
+				    prev.next.next = curr
+				    prev = curr
+				    curr = curr.next
 				return dummy.next

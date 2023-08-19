@@ -31,11 +31,14 @@ from typing import List
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        # find row in which target could be
         row = len(matrix) - 1
         for i in range(len(matrix)-1):
             if(target >= matrix[i][0] and target < matrix[i+1][0]):
                 row = i
                 break
+        # search row for target
+        # stop when nums are larger than target
         for num in matrix[row]:
             if(num == target):
                 return True

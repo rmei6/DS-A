@@ -41,6 +41,7 @@ class Solution:
             return list1 if not list2 else list2
         head1,head2 = list1,list2
         result = None
+        #determine starting node
         if(head1.val < head2.val):
             result = head1
             head1 = head1.next
@@ -48,6 +49,7 @@ class Solution:
             result = head2
             head2 = head2.next
         merged_head = result
+        #compare each node as you go down each list
         while head1 and head2:
             if(head1.val < head2.val):
                 result.next = head1
@@ -56,5 +58,6 @@ class Solution:
                 result.next = head2
                 head2 = head2.next
             result = result.next
+        #add remaining node(s) to merged list
         result.next = head1 if head1 else head2
         return merged_head

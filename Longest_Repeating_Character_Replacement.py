@@ -61,16 +61,20 @@ class Solution:
         # break_point = False
         # num_rep = k
         # while place < len(s):
+          #advance count if you find the same letter
         #     if s[place] == letter:
         #         current_length += 1
         #         place += 1
         #     else:
+          # set breakpoint to go back to if it's the first other letter you find
         #         if not break_point:
         #             break_point = place
+          # used up the replacements
         #         if num_rep > 0:
         #             current_length += 1
         #             place += 1
         #             num_rep -= 1
+          # if the replacements are used up, find max_length and backtrack to breakpoint
         #         else:
         #             max_length = max(max_length,current_length)
         #             current_length = 0
@@ -81,6 +85,7 @@ class Solution:
         # print(break_point)
         # print(num_rep)
         # print(letter)
+          # go backwards if there are replacements to be used for a possible longer substring
         # if(num_rep != 0):
         #     place = break_point - 1
         #     while(place > -1 and num_rep > 0):

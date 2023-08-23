@@ -54,38 +54,60 @@
 
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        max_length = 0
-        current_length = 0
-        letter = s[0]
-        place = 0
-        break_point = False
-        num_rep = k
-        while place < len(s):
-            if s[place] == letter:
-                current_length += 1
-                place += 1
+        # max_length = 0
+        # current_length = 0
+        # letter = s[0]
+        # place = 0
+        # break_point = False
+        # num_rep = k
+        # while place < len(s):
+        #     if s[place] == letter:
+        #         current_length += 1
+        #         place += 1
+        #     else:
+        #         if not break_point:
+        #             break_point = place
+        #         if num_rep > 0:
+        #             current_length += 1
+        #             place += 1
+        #             num_rep -= 1
+        #         else:
+        #             max_length = max(max_length,current_length)
+        #             current_length = 0
+        #             num_rep = k
+        #             letter = s[break_point]
+        #             place = break_point
+        #             break_point = False
+        # print(break_point)
+        # print(num_rep)
+        # print(letter)
+        # if(num_rep != 0):
+        #     place = break_point - 1
+        #     while(place > -1 and num_rep > 0):
+        #         if(s[place] != letter):
+        #             current_length += 1
+        #             num_rep -= 1
+        #         place -= 1
+        # return max(max_length,current_length)
+
+        l = 0
+        c_frequency = {}
+        longest_str_len = 0
+        for r in range(len(s)):
+            
+            if not s[r] in c_frequency:
+                c_frequency[s[r]] = 0
+            c_frequency[s[r]] += 1
+            
+            # Replacements cost = cells count between left and right - highest frequency
+            cells_count = r - l + 1
+            if cells_count - max(c_frequency.values()) <= k:
+                longest_str_len = max(longest_str_len, cells_count)
+                
             else:
-                if not break_point:
-                    break_point = place
-                if num_rep > 0:
-                    current_length += 1
-                    place += 1
-                    num_rep -= 1
-                else:
-                    max_length = max(max_length,current_length)
-                    current_length = 0
-                    num_rep = k
-                    letter = s[break_point]
-                    place = break_point
-                    break_point = False
-        print(break_point)
-        print(num_rep)
-        print(letter)
-        if(num_rep != 0):
-            place = break_point - 1
-            while(place > -1 and num_rep > 0):
-                if(s[place] != letter):
-                    current_length += 1
-                    num_rep -= 1
-                place -= 1
-        return max(max_length,current_length)
+                c_frequency[s[l]] -= 1
+                if not c_frequency[s[l]]:
+                    c_frequency.pop(s[l])
+                l += 1
+        
+        return longest_str_len

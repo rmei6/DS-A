@@ -27,19 +27,35 @@
 # 0 <= nums[i] <= 1000
 
 from typing import List
-
 class Solution:
     def rob(self, nums: List[int]) -> int:
-        if(len(nums) <= 3):
-            return max(nums)
-        group1,group2 = [],[]
-        for i,num in enumerate(nums):
-            if i % 2 == 0:
-                group1.append(num)
-            else:
-                group2.append(num)
-        if(len(nums) % 2 == 1):
-            first = group1.pop(0)
-            last = group1.pop()
-            group1.append(max(first,last))
-        return max(sum(group1),sum(group2))
+        # if(len(nums) <= 3):
+        #     return max(nums)
+        # group1,group2 = [],[]
+        # for i,num in enumerate(nums):
+        #     if i % 2 == 0:
+        #         group1.append(num)
+        #     else:
+        #         group2.append(num)
+        # if(len(nums) % 2 == 1):
+        #     first = group1.pop(0)
+        #     last = group1.pop()
+        #     group1.append(max(first,last))
+        # return max(sum(group1),sum(group2))
+        def houseRobber(nums):
+            # dynamic programming - decide each problem by its sub-problems:
+            dp = [0]*len(nums)
+            dp[0] = nums[0]
+            dp[1] = max(nums[0], nums[1])
+            for i in range(2, len(nums)):
+                dp[i] = max(dp[i-1], nums[i]+dp[i-2])
+
+            return dp[-1]
+        
+        # edge cases:
+        if len(nums) == 0: return 0
+        if len(nums) == 1: return nums[0]
+        if len(nums) == 2: return max(nums)
+        
+        # either use first house and can't use last or last and not first:
+        return max(houseRobber(nums[:-1]), houseRobber(nums[1:]))

@@ -44,15 +44,24 @@ from collections import defaultdict
 
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
-        penalty_times = defaultdict(list)
-        for time in range(len(customers)+1):
-            penalty = 0
-            for i,people in enumerate(customers):
-                if(i < time):
-                    if(people == 'N'):
-                        penalty += 1
-                else:
-                    if(people == 'Y'):
-                        penalty += 1
-            penalty_times[penalty].append(time)
-        return min(penalty_times[min(penalty_times.keys())])
+        # penalty_times = defaultdict(list)
+        # for time in range(len(customers)+1):
+        #     penalty = 0
+        #     for i,people in enumerate(customers):
+        #         if(i < time):
+        #             if(people == 'N'):
+        #                 penalty += 1
+        #         else:
+        #             if(people == 'Y'):
+        #                 penalty += 1
+        #     penalty_times[penalty].append(time)
+        # return min(penalty_times[min(penalty_times.keys())])
+        max_score = score = 0
+        best_hour = -1
+
+        for i, c in enumerate(customers):
+            score += 1 if c == 'Y' else -1
+            if score > max_score:
+                max_score, best_hour = score, i
+                
+        return best_hour + 1

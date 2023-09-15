@@ -30,6 +30,7 @@
 # fromi != toi
 
 from typing import List
+from collections import defaultdict
 
 class Solution:
     def findItinerary(self, tickets: List[List[str]]) -> List[str]:

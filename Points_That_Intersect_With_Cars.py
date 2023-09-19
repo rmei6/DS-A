@@ -26,8 +26,16 @@ from typing import List
 
 class Solution:
     def numberOfPoints(self, nums: List[List[int]]) -> int:
-        s = set()
-        for start, end in nums:
-            s|= set(range(start, end+1))
+        # s = set()
+        # for start, end in nums:
+        #     s|= set(range(start, end+1))
 
-        return len(s)
+        # return len(s)
+
+        # Lower Space Complexity
+        nums.sort(key = lambda x: x[0])
+        result = biggest = 0
+        for a, b in nums:
+            result += max(0, b - max(a - 1, biggest))
+            biggest = max(biggest, b)
+        return result

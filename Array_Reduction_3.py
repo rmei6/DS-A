@@ -12,6 +12,7 @@ import sys
 #   - remove the minimum and maximum elements from the current array and add the sum back to the array
 #   - the cost of the operation, cost = ceil((minimum + maximum) / (maximum - minimum + 1))
 # Find the total cost to reduce the array to one element
+# all elements of the array are positive
 
 #
 # Complete the 'findTotalCost' function below.

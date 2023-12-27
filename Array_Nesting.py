@@ -33,6 +33,7 @@ from typing import List
 
 class Solution:
     def arrayNesting(self, nums: List[int]) -> int:
+        # 1st approach
         res, l = 0, len(nums)
         globalSet = set()
         for k in range(l):

@@ -50,20 +50,91 @@
 
 from typing import List
 
+def f(a, b):
+    return (min(a[0], b[0]), max(a[1], b[1]))
+
+
+class IntervalTree:
+    def __init__(self, t):
+        pow2 = 1
+        n = len(t)
+        while pow2 < n:
+            pow2 <<= 1
+        self.first_leaf = pow2 - 1
+        self.t = [None] * self.first_leaf
+        self.t.extend(t)
+        self.t.extend((0, 0) for _ in range(pow2 - n))
+        for i in reversed(range(self.first_leaf)):
+            self.t[i] = f(self.t[2 * i + 1], self.t[2 * i + 2])
+    
+    def query(self, lpos, rpos):
+        l = lpos + self.first_leaf
+        r = rpos + self.first_leaf
+        res = f(self.t[l], self.t[r])
+        while (l - 1) // 2 < (r - 1) // 2:
+            if l & 1:
+                res = f(res, self.t[l + 1])
+            if not r & 1:
+                res = f(self.t[r - 1], res)
+            l = (l - 1) // 2
+            r = (r - 1) // 2
+        return res
+    
+    def get(self, pos):
+        i = pos + self.first_leaf
+        return self.t[i]
+
 class Solution:
     def executeInstructions(self, n: int, startPos: List[int], s: str) -> List[int]:
-        def num_of_valid_instructions(s, pos, start, end):
-            row, colon = pos
-            k = 0
-            for i in range(start, end):
-                cur = s[i]
-                row += (cur == 'D') - (cur == 'U')
-                colon += (cur == 'R') - (cur == 'L')
-                if not (0 <= row < n and 0 <= colon < n):
-                    return k
-                k += 1
-            return k
-        ans = []
+        # brute force method
+        # def num_of_valid_instructions(s, pos, start, end):
+        #     row, colon = pos
+        #     k = 0
+        #     for i in range(start, end):
+        #         cur = s[i]
+        #         row += (cur == 'D') - (cur == 'U')
+        #         colon += (cur == 'R') - (cur == 'L')
+        #         if not (0 <= row < n and 0 <= colon < n):
+        #             return k
+        #         k += 1
+        #     return k
+        # ans = []
+        # for i in range(len(s)):
+        #     ans.append(num_of_valid_instructions(s, startPos, i, len(s)))
+        # return ans
+        # Interval tree method
+        r, c = 0, 0
+        rs = []
+        cs = []
+        for ch in s:
+            if ch == 'L':
+                c -= 1
+            elif ch == 'R':
+                c += 1
+            elif ch == 'U':
+                  r -= 1
+            else:
+                r += 1
+            rs.append((r, r))
+            cs.append((c, c))
+        rit = IntervalTree(rs)
+        cit = IntervalTree(cs)
+        answer = []
         for i in range(len(s)):
-            ans.append(num_of_valid_instructions(s, startPos, i, len(s)))
-        return ans
+            lx, rx = i, len(s)
+            while lx < rx:
+                mx = lx + (rx - lx) // 2
+                rr = rit.query(i, mx)
+                cc = cit.query(i, mx)
+                if i:
+                    rstart = rit.get(i - 1)[0]
+                    cstart = cit.get(i - 1)[0]
+                else:
+                    rstart, cstart = 0, 0
+                if startPos[0] + rr[0] - rstart in range(n) and startPos[0] + rr[1] - rstart in range(n) and \
+                    startPos[1] + cc[0] - cstart in range(n) and startPos[1] + cc[1] - cstart in range(n):
+                    lx = mx + 1
+                else:
+                    rx = mx
+            answer.append(lx - i)      
+        return answer

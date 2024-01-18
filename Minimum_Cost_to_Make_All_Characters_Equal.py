@@ -32,12 +32,18 @@
 
 class Solution:
     def minimumCost(self, s: str) -> int:
-        def backtracking(i):
-            if i == len(s):
-                return 0
-            if s[i] == s[i-1]:
-                return backtracking(i+1)
-            leftcost = i + backtracking(i+1)
-            rightcost = len(s) - i + backtracking(i+1)
-            return min(leftcost, rightcost)
-        return backtracking(1)
+        # def backtracking(i):
+        #     if i == len(s):
+        #         return 0
+        #     if s[i] == s[i-1]:
+        #         return backtracking(i+1)
+        #     leftcost = i + backtracking(i+1)
+        #     rightcost = len(s) - i + backtracking(i+1)
+        #     return min(leftcost, rightcost)
+        # return backtracking(1)
+        cost = 0
+        n = len(s)
+        for i in range(1, n):
+            if s[i] != s[i-1]:
+                cost += min(i, n-i)
+        return cost

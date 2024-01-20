@@ -28,7 +28,6 @@ class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
         arr = [-math.inf] + arr + [-math.inf]
         n = len(arr)
-        
         st = []
         res = 0
         

@@ -40,17 +40,41 @@ from typing import List
 
 class Solution:
     def maxLength(self, arr: List[str]) -> int:
-        maxlen = 0
-        unique = ['']
+        #brute force approach
+        # maxlen = 0
+        # unique = ['']
         
-        def isvalid(s):
-            return len(s) == len(set(s))
+        # def isvalid(s):
+        #     return len(s) == len(set(s))
         
-        for word in arr:
-            for j in unique:
-                tmp = word + j
-                if isvalid(tmp):
-                    unique.append(tmp)
-                    maxlen = max(maxlen, len(tmp))
+        # for word in arr:
+        #     for j in unique:
+        #         tmp = word + j
+        #         if isvalid(tmp):
+        #             unique.append(tmp)
+        #             maxlen = max(maxlen, len(tmp))
                     
-        return maxlen
+        # return maxlen
+
+        #dfs approach
+        result = [0]
+        self.dfs(arr, "", 0, result)
+        return result[0]
+
+    def dfs(self, arr, path, idx, result):
+        if self.isUniqueChars(path):
+            result[0] = max(result[0], len(path))
+
+        if idx == len(arr) or not self.isUniqueChars(path):
+            return
+
+        for i in range(idx, len(arr)):
+            self.dfs(arr, path + arr[i], i + 1, result)
+
+    def isUniqueChars(self, s):
+        char_set = set()
+        for c in s:
+            if c in char_set:
+                return False
+            char_set.add(c)
+        return True

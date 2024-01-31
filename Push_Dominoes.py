@@ -36,58 +36,67 @@
 class Solution:
     def pushDominoes(self, dominoes: str) -> str:
         # 2 pointer approach
-        low, high = 0, len(dominoes) - 1
-        dominoes = list(dominoes)
+        # low, high = 0, len(dominoes) - 1
+        # dominoes = list(dominoes)
         
-        if dominoes[low] == ".":
-            for i in range(len(dominoes)):
-                if dominoes[i] == "R": 
-                    low = i
-                    break
+        # if dominoes[low] == ".":
+        #     for i in range(len(dominoes)):
+        #         if dominoes[i] == "R": 
+        #             low = i
+        #             break
                 
-                if dominoes[i] == "L":
-                    for j in range(i):
-                        dominoes[j] = "L"
-                    break
+        #         if dominoes[i] == "L":
+        #             for j in range(i):
+        #                 dominoes[j] = "L"
+        #             break
                     
-        if dominoes[high] == ".":
-            for i in range(len(dominoes)-1,-1,-1):
-                if dominoes[i] == "L": 
-                    high = i
-                    break
+        # if dominoes[high] == ".":
+        #     for i in range(len(dominoes)-1,-1,-1):
+        #         if dominoes[i] == "L": 
+        #             high = i
+        #             break
                 
-                if dominoes[i] == "R":
-                    for j in range(i, len(dominoes)):
-                        dominoes[j] = "R"
-                    break
+        #         if dominoes[i] == "R":
+        #             for j in range(i, len(dominoes)):
+        #                 dominoes[j] = "R"
+        #             break
         
-        i = low
-        for j in range(low+1, high+1):
-            if dominoes[i] == "R" and dominoes[j] == "L":
-                mid = (i+j) //2 
-                temp = j
-                while i != j:
-                    if i >= temp:
-                        i = j
-                        break
+        # i = low
+        # for j in range(low+1, high+1):
+        #     if dominoes[i] == "R" and dominoes[j] == "L":
+        #         mid = (i+j) //2 
+        #         temp = j
+        #         while i != j:
+        #             if i >= temp:
+        #                 i = j
+        #                 break
                     
-                    dominoes[i] = "R"
-                    dominoes[temp] = "L"
+        #             dominoes[i] = "R"
+        #             dominoes[temp] = "L"
                     
-                    temp-=1
-                    i+=1
+        #             temp-=1
+        #             i+=1
             
-            if dominoes[i] == "R" and dominoes[j] == "R":
-                while i != j:
-                    dominoes[i] = "R"
-                    i+=1
+        #     if dominoes[i] == "R" and dominoes[j] == "R":
+        #         while i != j:
+        #             dominoes[i] = "R"
+        #             i+=1
             
-            if dominoes[i] == "L" and dominoes[j] == "L":
-                while i != j:
-                    dominoes[i] = "L"
-                    i+=1
+        #     if dominoes[i] == "L" and dominoes[j] == "L":
+        #         while i != j:
+        #             dominoes[i] = "L"
+        #             i+=1
                 
-            if dominoes[i] == "L" and dominoes[j] == "R":
-                i = j
+        #     if dominoes[i] == "L" and dominoes[j] == "R":
+        #         i = j
 
-        return "".join(dominoes)
+        # return "".join(dominoes)
+
+        # string replacement approach
+        temp = ''
+        while dominoes != temp:
+            temp = dominoes
+            dominoes = dominoes.replace('R.L', 'xxx')
+            dominoes = dominoes.replace('R.', 'RR')
+            dominoes = dominoes.replace('.L', 'LL')
+        return  dominoes.replace('xxx', 'R.L')

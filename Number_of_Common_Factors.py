@@ -22,4 +22,12 @@
 
 class Solution:
     def commonFactors(self, a: int, b: int) -> int:
-        return sum(a % n == 0 and b % n == 0 for n in range(1, min(a, b) + 1))
+        # brute force
+        # return sum(a % n == 0 and b % n == 0 for n in range(1, min(a, b) + 1))
+    
+        #math solution
+        def factors(n):
+            return set(factor for i in range(1, int(n ** 0.5) + 1) if n % i == 0 \
+                       for factor in (i, n / i))
+      
+        return len(set(factors(a) & factors(b)))

@@ -40,6 +40,7 @@ from typing import List
 
 class Solution:
     def minimumDeviation(self, nums: List[int]) -> int:
+        # priority heap approach
         result = float('inf')
         heap = []  
         for n in set(nums):

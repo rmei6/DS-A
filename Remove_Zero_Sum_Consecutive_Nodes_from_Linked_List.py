@@ -36,6 +36,8 @@ class ListNode:
 
 class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # using prefix sum
+        # encountering same prefix sums mean encountering zero sum sequences
         dummy = ListNode(0)
         dummy.next = head
         prefixSumToNode = {}

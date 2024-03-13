@@ -30,6 +30,18 @@ from math import sqrt
 
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        x=sqrt(n*(n+1)/2)
-        return int(x) if x==int(x) else -1
-        
+        # 2 liner
+        # x=sqrt(n*(n+1)/2)
+        # return int(x) if x==int(x) else -1
+        # newton method
+        def findSqrt(num: int):
+           if num == 0: return 0
+           x = num
+           x0 = 1
+           while(abs(x-x0) >= 1):
+               x0 = x
+               x = x0 - (x0 * x0 - num) / (2*x0)
+           return int(x) if x <= x0 else int(x0)
+        x = n * (n + 1) / 2
+        y = findSqrt(x)
+        return x if y*y == x else -1

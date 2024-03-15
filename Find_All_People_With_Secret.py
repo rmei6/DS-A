@@ -50,37 +50,67 @@
 # 1 <= firstPerson <= n - 1
 
 from typing import List
+from itertools import groupby
+from operator import itemgetter
 
 class Solution:
     def findAllPeople(self, n: int, meetings: List[List[int]], firstPerson: int) -> List[int]:
-        groups = [i for i in range(n)]
-        groups[firstPerson] = 0
+        # groups = [i for i in range(n)]
+        # groups[firstPerson] = 0
 
-        meetings.sort(key=lambda x: x[2])
+        # meetings.sort(key=lambda x: x[2])
 
-        size = len(meetings)
-        i = 0
-        while i < size:
-            current_time = meetings[i][2]
-            temp = []
-            while i < size and meetings[i][2] == current_time:
-                g1 = self.find(groups, meetings[i][0])
-                g2 = self.find(groups, meetings[i][1])
-                groups[max(g1, g2)] = min(g1, g2)
-                temp.extend([meetings[i][0], meetings[i][1]])
-                i += 1
-            for j in temp:
-                if self.find(groups, j) != 0:
-                    groups[j] = j
+        # size = len(meetings)
+        # i = 0
+        # while i < size:
+        #     current_time = meetings[i][2]
+        #     temp = []
+        #     while i < size and meetings[i][2] == current_time:
+        #         g1 = self.find(groups, meetings[i][0])
+        #         g2 = self.find(groups, meetings[i][1])
+        #         groups[max(g1, g2)] = min(g1, g2)
+        #         temp.extend([meetings[i][0], meetings[i][1]])
+        #         i += 1
+        #     for j in temp:
+        #         if self.find(groups, j) != 0:
+        #             groups[j] = j
 
-        result = []
-        for j in range(n):
-            if self.find(groups, j) == 0:
-                result.append(j)
+        # result = []
+        # for j in range(n):
+        #     if self.find(groups, j) == 0:
+        #         result.append(j)
 
-        return result
+        # return result
+        # union method
+        secretHolders = {0, firstPerson}
+        for _, frame in groupby(sorted(meetings, key=itemgetter(2)), key=itemgetter(2)):
+            uf = UnionFind()
+            for x, y, _ in frame:
+                uf.union(*((y, x), (x, y))[uf.find(x) in secretHolders])
+
+            secretHolders.update(person for person in uf if uf.find(person) in secretHolders)
+        
+        return secretHolders
+    
 
     def find(self, groups: List[int], index: int) -> int:
         while index != groups[index]:
             index = groups[index]
         return index
+
+class UnionFind:
+    def __init__(self):
+        self.p = {}
+    
+    def union(self, a, b):
+        self.p[self.find(b)] = self.find(a)
+    
+    def find(self, e):
+        p = self.p.get(e, e)
+        if e != p:
+            p = self.p[e] = self.find(p)
+        
+        return p
+    
+    def __iter__(self):
+        return iter(self.p)

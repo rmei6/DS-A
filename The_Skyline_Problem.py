@@ -34,7 +34,7 @@
 # 1 <= heighti <= 231 - 1
 # buildings is sorted by lefti in non-decreasing order.
 
-
+# usages in radar computer imaging?
 
 from typing import List
 import heapq

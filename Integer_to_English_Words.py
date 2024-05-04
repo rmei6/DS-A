@@ -20,6 +20,8 @@
 
 # 0 <= num <= 231 - 1
 
+# possible usage in calculations to result presentation
+
 class Solution:
     def numberToWords(self, num: int) -> str:
         if num == 0:

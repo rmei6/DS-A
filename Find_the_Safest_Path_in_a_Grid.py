@@ -47,7 +47,7 @@
 # There is at least one thief in the grid.
 
 import heapq
-import deque
+from collections import deque
 
 class Solution:
     def __init__(self):

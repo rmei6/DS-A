@@ -28,6 +28,10 @@
 # There will be no two consecutive operators in the input.
 # Every number and running calculation will fit in a signed 32-bit integer.
 
+# O(n) stack approach
+# runtime: 70 ms
+# memory: 15.3 mb
+
 class Solution:
     def calculate(self, s: str) -> int:
         output, curr, sign, stack = 0, 0, 1, []

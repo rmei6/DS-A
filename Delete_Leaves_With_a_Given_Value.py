@@ -32,6 +32,11 @@
 # The number of nodes in the tree is in the range [1, 3000].
 # 1 <= Node.val, target <= 1000
 
+# time: O(N)
+# space: O(H) , H is height of tree
+# runtime: 51 ms
+# memory: 17 mb
+
 from typing import Optional
 
 # Definition for a binary tree node.

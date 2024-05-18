@@ -27,6 +27,9 @@
 # 0 <= Node.val <= n
 # The sum of all Node.val is n.
 
+# time: O(n)
+# space: O(n)
+
 from typing import Optional
 
 # Definition for a binary tree node.

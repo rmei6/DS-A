@@ -30,6 +30,8 @@
 # time: O(n)
 # space: O(n)
 
+# post order dfs approach
+
 from typing import Optional
 
 # Definition for a binary tree node.

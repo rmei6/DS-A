@@ -38,6 +38,7 @@ class Solution:
         return r[: len(r) - pi[-1]] + s
     # Rolling Hash approach
     # time: O(n), space: O(n)
+    # same time and space complexity, but lower runtime and memory usage
     def shortestPalindrome1(self, s: str) -> str:
         n = len(s)
         P, MOD, POW = 31, 10**9 + 7, 1

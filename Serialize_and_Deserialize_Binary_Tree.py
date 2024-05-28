@@ -37,16 +37,16 @@ class Codec:
         :type root: TreeNode
         :rtype: str
         """
-        s=""
-        queue=[]
+        s = ""
+        queue = []
         queue.append(root)
-        while(len(queue)!=0):
-            node=queue.pop(0)
-            if(node==None):
-                s=s+"#,"
+        while(len(queue) != 0):
+            node = queue.pop(0)
+            if(node == None):
+                s = s + "#,"
             else:
-                s=s+str(node.val)+","
-            if(node!=None):
+                s = s + str(node.val) + ","
+            if(node != None):
                 queue.append(node.left)
                 queue.append(node.right)
         print(s)
@@ -56,29 +56,29 @@ class Codec:
 
     def deserialize(self, data):
         """Decodes your encoded data to tree."""
-        if(len(data)==0):
+        if(len(data) == 0):
             return None
-        lt=data.split(",")
-        if(lt[0]=="#"):
+        lt = data.split(",")
+        if(lt[0] == "#"):
             return None
         lt.pop()
-        queue=[]
-        root=TreeNode(lt[0])
+        queue = []
+        root = TreeNode(lt[0])
         queue.append(root)
-        i=0
-        while(len(queue)!=0):
-            node=queue.pop(0)
-            i=i+1
-            if(lt[i]=="#"):
-                node.left=None
+        i = 0
+        while(len(queue) != 0):
+            node = queue.pop(0)
+            i = i + 1
+            if(lt[i] == "#"):
+                node.left = None
             else:
-                node.left=TreeNode(int(lt[i]))
+                node.left = TreeNode(int(lt[i]))
                 queue.append(node.left)
-            i=i+1
-            if(lt[i]=="#"):
-                node.right=None
+            i = i + 1
+            if(lt[i] == "#"):
+                node.right = None
             else:
-                node.right=TreeNode(int(lt[i]))
+                node.right = TreeNode(int(lt[i]))
                 queue.append(node.right)
         return root
             

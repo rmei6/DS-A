@@ -37,6 +37,8 @@
 # s consists of characters '0' or '1'
 # s[0] == '1'
 
+# time: O(n), space: O(n)
+
 class Solution:
     def numSteps(self, s: str) -> int:
         res, carry = 0, False

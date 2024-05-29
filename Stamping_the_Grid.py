@@ -35,6 +35,8 @@
 # grid[r][c] is either 0 or 1.
 # 1 <= stampHeight, stampWidth <= 105
 
+# time: O(mn), space: O(n)
+
 from typing import List
 
 class Solution:

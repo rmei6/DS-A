@@ -35,6 +35,7 @@ from math import inf
 class Solution:
     def tilingRectangle(self, n: int, m: int) -> int:
         # 11x13 is the only case where there is a square in the middle
+        # todo: use method that doesn't exclude outliers
         if max(m, n) == 13 and min(m, n) == 11:
             return 6
 

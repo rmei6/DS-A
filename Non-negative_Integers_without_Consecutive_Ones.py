@@ -31,6 +31,7 @@
 
 class Solution:
     def findIntegers(self, n: int) -> int:
+        # fibonacci method
         f = [1,2]
         for i in range(2,30):
             f.append(f[-1] + f[-2])

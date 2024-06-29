@@ -45,6 +45,8 @@
 # There are no duplicate edges.
 # The graph is directed and acyclic.
 
+# time: O(N), space: O(N)
+
 from typing import List
 from collections import deque,defaultdict
 

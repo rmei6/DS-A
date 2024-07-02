@@ -18,6 +18,8 @@
 # 1 <= arr.length <= 1000
 # 1 <= arr[i] <= 1000
 
+from typing import List
+
 class Solution:
     def threeConsecutiveOdds(self, arr: List[int]) -> bool:
         return any(a%2 == b%2 == c%2 == 1 for a,b,c in zip(arr,arr[1:],arr[2:]))

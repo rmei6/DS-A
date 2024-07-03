@@ -41,6 +41,8 @@
 # 1 <= nums.length <= 105
 # -109 <= nums[i] <= 109
 
+# time: O(nlogn) space: O(n)
+
 from typing import List
 
 class Solution:

@@ -28,6 +28,8 @@
 # s only contains lower case English characters and parentheses.
 # It is guaranteed that all parentheses are balanced.
 
+# time and space are O(n)
+
 class Solution:
     def reverseParentheses(self, s: str) -> str:
         n = len(s)

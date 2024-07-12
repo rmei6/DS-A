@@ -22,6 +22,8 @@
 # -105 <= lower <= upper <= 105
 # The answer is guaranteed to fit in a 32-bit integer.
 
+# time: O(nlogn) space: O(n)
+
 from typing import List
 
 class Solution:

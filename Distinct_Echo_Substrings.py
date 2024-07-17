@@ -31,3 +31,5 @@ class Solution:
                     ans.add(tmp)
 
         return len(ans)
+        # one liner
+        return len(set(s[i:(j+i)//2] for i in range(len(s)) for j in range(i+2, len(s)+1, 2) if s[i:(j+i)//2]*2 == s[i:j]))

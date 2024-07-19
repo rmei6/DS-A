@@ -42,6 +42,8 @@
 # yi == queries[i][2]
 # 1 <= xi, yi <= 109
 
+# time: O(nlogn) spsce: O(n)
+
 from typing import List
 from collections import defaultdict
 from bisect import bisect_left

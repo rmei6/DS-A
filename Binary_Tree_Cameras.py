@@ -23,6 +23,8 @@
 # The number of nodes in the tree is in the range [1, 1000].
 # Node.val == 0
 
+# time: O(n) space: O(h?)
+
 from typing import Optional
 import math
 

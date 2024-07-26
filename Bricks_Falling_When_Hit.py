@@ -56,6 +56,9 @@
 # 0 <= yi <= n - 1
 # All (xi, yi) are unique.
 
+# time: O(n * h * w + k)
+# space: O(n *  w)
+
 from typing import List
 from collections import deque
 from heapq import heapify,heappop,heappush

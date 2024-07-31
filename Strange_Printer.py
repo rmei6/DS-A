@@ -23,6 +23,8 @@
 # 1 <= s.length <= 100
 # s consists of lowercase English letters.
 
+# time: O(n^3)   space: O(n^2)
+
 class Solution:
     def strangePrinter(self, s: str) -> int:
         n = len(s)

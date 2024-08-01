@@ -28,6 +28,9 @@
 # details[i][10] is either 'M' or 'F' or 'O'.
 # The phone numbers and seat numbers of the passengers are distinct.
 
+# time: O(n)
+# space: O(1)
+
 from typing import List
 
 class Solution:

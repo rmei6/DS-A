@@ -35,6 +35,9 @@
 // There is at most one road connecting any two intersections.
 // You can reach any intersection from any other intersection.
 
+// time: (nlogn)
+// space: O(n^2)
+
 /**
  * @param {number} n
  * @param {number[][]} roads

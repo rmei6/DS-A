@@ -34,6 +34,8 @@
 // nums.length is divisible by k
 // 1 <= nums[i] <= nums.length
 
+// approach: back tracking and memoisation 
+
 // time: O(n*2^n)
 // space: O(2^n)
 

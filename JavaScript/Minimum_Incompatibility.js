@@ -34,6 +34,9 @@
 // nums.length is divisible by k
 // 1 <= nums[i] <= nums.length
 
+// time: O(n*2^n)
+// space: O(2^n)
+
 let memo = new Uint8Array(65536);
 let selections = new Uint8Array(16);
 

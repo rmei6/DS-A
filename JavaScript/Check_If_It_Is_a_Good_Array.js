@@ -46,4 +46,6 @@ var isGoodArray = function (nums) {
   }
 
   return false;
+  // one liner
+  return nums.reduce((gcd = (a, b) => (b ? gcd(b, a % b) : a))) === 1;
 };

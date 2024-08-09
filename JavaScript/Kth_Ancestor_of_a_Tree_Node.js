@@ -33,6 +33,9 @@
 // 0 <= node < n
 // There will be at most 5 * 104 queries.
 
+// time: O(nlogn)
+// space: O(nlogn)
+
 /**
  * @param {number} n
  * @param {number[]} parent

@@ -30,6 +30,9 @@
 // 1 <= n <= 30
 // grid[i][j] is either '/', '\', or ' '.
 
+// time: O(n^2)
+// space: O(n^2)
+
 // euler's method for planar graph
 // f(number of regions) = e(edges) - v(vertices) + c(connected components)
 

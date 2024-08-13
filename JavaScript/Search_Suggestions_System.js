@@ -30,27 +30,88 @@
 // 1 <= searchWord.length <= 1000
 // searchWord consists of lowercase English letters.
 
+class Trie {
+  constructor() {
+      this.children = {};
+      this.word = '';
+      this.isWord = false;
+  }
+
+  insert(word) {
+      let node = this;
+
+      for (const char of word) {
+          if (!node.children[char]) node.children[char] = new Trie();
+          node = node.children[char];
+      }
+
+      node.isWord = true;
+      node.word = word;
+  }
+
+  startsWith(prefix) {
+      let node = this;
+
+      for (const char of prefix) {
+          if (!node.children[char]) return [];
+          node = node.children[char];
+      }
+
+      const suggestions = []
+      const traverse = (node) => {
+          if (node.isWord) {
+              suggestions.push(node.word);
+          }
+
+          for (const child in node.children) {
+              traverse(node.children[child]);
+          }
+      }
+
+      traverse(node);
+      return suggestions.sort().slice(0, 3);
+
+  }
+}
+
 /**
  * @param {string[]} products
  * @param {string} searchWord
  * @return {string[][]}
  */
 const suggestedProducts = function(products, searchWord) {
-  const result = [];
-  let prefix = '';
+  // iterative method
+  // const result = [];
+  // let prefix = '';
 
-  for (const char of searchWord) {
-      prefix += char;
-      const suggestions = [];
+  // for (const char of searchWord) {
+  //     prefix += char;
+  //     const suggestions = [];
 
-      for (const product of products) {
-          if (product.startsWith(prefix)) {
-              suggestions.push(product);
-          }
-      }
+  //     for (const product of products) {
+  //         if (product.startsWith(prefix)) {
+  //             suggestions.push(product);
+  //         }
+  //     }
 
-      result.push(suggestions.sort().slice(0, 3));
-  }
+  //     result.push(suggestions.sort().slice(0, 3));
+  // }
 
-  return result;
+  // return result;
+  // trie method
+  let root = new Trie();
+
+    for (const product of products) {
+        root.insert(product);
+    }
+
+    const result = [];
+    let prefix = '';
+
+    for (const char of searchWord) {
+        const suggestions = root.startsWith(prefix += char);
+        result.push(suggestions);
+    }
+
+    return result;
 };

@@ -71,9 +71,22 @@
 -- Explanation: If there is only one node on the tree, you only need to output its root attributes.
 
 # Write your MySQL query statement below
+
+-- case clause approach (simple, but inefficient)
 select id, case 
 when p_id is null then 'Root'
 when p_id in (select id from tree) and id in (select p_id from tree) then 'Inner'
 ELSE 'Leaf'
 end as type
 from Tree
+
+-- case when and aggregation approach (faster)
+
+select t1.id,case when min(t1.p_id) is null then 'Root'
+        when count(t2.p_id) > 0 then 'Inner'
+        else 'Leaf'
+        end as type
+from Tree t1
+left join Tree t2
+on t1.id = t2.p_id
+group by 1

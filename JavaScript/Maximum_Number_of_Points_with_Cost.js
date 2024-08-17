@@ -42,6 +42,9 @@
 // 1 <= m * n <= 105
 // 0 <= points[r][c] <= 105
 
+// time: O(2 * m * n) -> O(m*n)
+// space: O(n)
+
 /**
  * @param {number[][]} points
  * @return {number}

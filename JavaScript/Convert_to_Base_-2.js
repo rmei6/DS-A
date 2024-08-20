@@ -30,6 +30,7 @@
  * @return {string}
  */
 var baseNeg2 = function (n) {
+  // linear
   // Handle special case when input is 0
   if (n === 0) return '0';
 
@@ -51,4 +52,13 @@ var baseNeg2 = function (n) {
 
 
   return binaryCode
+  // recursive
+  // base case for special inputs
+  if (n === 0) return "0";
+  if (n === 1) return "1";
+
+  let ans = baseNeg2(Math.ceil(n / -2));
+  let reminder = Math.abs(n % -2).toString();
+
+  return ans + reminder;
 };

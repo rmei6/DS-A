@@ -29,6 +29,9 @@
 // 0 <= routes[i][j] < 106
 // 0 <= source, target < 106
 
+// time: O(n)
+// space: O(n^2)
+
 /**
  * @param {number[][]} routes
  * @param {number} source

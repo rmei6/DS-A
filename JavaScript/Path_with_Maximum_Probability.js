@@ -48,36 +48,77 @@
  * @return {number}
  */
 var maxProbability = function(n, edges, succProb, start, end) {
-  const graph =  new Array(n).fill(null).map(()=>[]);
+  // const graph =  new Array(n).fill(null).map(()=>[]);
 
-  for(let i=0;i<edges.length;i++){
-    const [a, b] = edges[i];
-    graph[a].push([b, succProb[i]]);
-    graph[b].push([a, succProb[i]])
-  } 
-  const maxProb = new Array(n).fill(0);
+  // for(let i=0;i<edges.length;i++){
+  //   const [a, b] = edges[i];
+  //   graph[a].push([b, succProb[i]]);
+  //   graph[b].push([a, succProb[i]])
+  // } 
+  // const maxProb = new Array(n).fill(0);
 
-  maxProb[start] = 1;
+  // maxProb[start] = 1;
 
-  const queue = [[start, 1]];
+  // const queue = [[start, 1]];
 
-  while(queue.length>0){
-    const [current, currentProb] = queue.shift();
+  // while(queue.length>0){
+  //   const [current, currentProb] = queue.shift();
 
-    if(current === end){
-      return currentProb;
-    }
-    for(const[next, prob] of graph[current]){
-      const newProb = currentProb * prob;
+  //   if(current === end){
+  //     return currentProb;
+  //   }
+  //   for(const[next, prob] of graph[current]){
+  //     const newProb = currentProb * prob;
 
-      if(newProb > maxProb[next]){
-        maxProb[next] = newProb;
-        queue.push([next, newProb]);
-      }
-    }
-    queue.sort((a, b) =>{
-      return b[1]-a[1];
-    })
+  //     if(newProb > maxProb[next]){
+  //       maxProb[next] = newProb;
+  //       queue.push([next, newProb]);
+  //     }
+  //   }
+  //   queue.sort((a, b) =>{
+  //     return b[1]-a[1];
+  //   })
+  // }
+  // return 0;
+  // time exceeded
+
+  // better solution
+  const MIN = Number.MIN_SAFE_INTEGER;
+  const m = edges.length;
+
+  const adjList = {};
+  const dists = new Array(n).fill(MIN);
+  
+  for (let i = 0; i < n; i++) {
+      adjList[i] = [];
   }
+  
+  for (let i = 0; i < m; i++) {
+      const [u, v] = edges[i];
+      const weight = succProb[i];
+      
+      adjList[u].push([v, weight]);
+      adjList[v].push([u, weight]);
+  }
+  
+  const maxHeap = new MaxPriorityQueue({ priority: x => x[1] });
+  
+  maxHeap.enqueue([ start, 1 ]);
+  
+  while (!maxHeap.isEmpty()) {
+      const [ node, prob ] = maxHeap.dequeue().element;
+      
+      if (node === end) return prob;
+      if (dists[node] > prob) continue;
+      
+      for (const [nei, weight] of adjList[node]) {
+          if (prob * weight > dists[nei]) {
+              dists[nei] = prob * weight;
+              maxHeap.enqueue([nei, dists[nei]]);
+          }
+      }
+  }
+  
   return 0;
 };
+

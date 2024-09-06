@@ -25,6 +25,9 @@
 // 1 <= nums[i] <= n
 // Each element in nums appears once or twice.
 
+// time and space: O(n)
+// histogram method
+
 /**
  * @param {number[]} nums
  * @return {number[]}

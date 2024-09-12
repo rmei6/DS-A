@@ -28,6 +28,11 @@
 // cards.length == 4
 // 1 <= cards[i] <= 9
 
+// time: O(4^n)
+// space: O(n)
+
+// time complexity seems high, but the cutting of branches makes it much lower in actual usage
+
 /**
  * @param {number[]} cards
  * @return {boolean}

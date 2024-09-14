@@ -32,6 +32,9 @@
 // 1 <= nums.length <= 105
 // 1 <= nums[i] <= 106
 
+// time: O(2n) => O(n)
+// space: O(1)
+
 /**
  * @param {number[]} nums
  * @return {number}

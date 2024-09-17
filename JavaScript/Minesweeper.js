@@ -40,6 +40,8 @@
 // 0 <= clickc < n
 // board[clickr][clickc] is either 'M' or 'E'.
 
+// using bfs to check neighboring cells
+
 /**
  * @param {character[][]} board
  * @param {number[]} click

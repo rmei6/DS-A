@@ -28,6 +28,9 @@
 // There will be no two consecutive operators in the input.
 // Every number and running calculation will fit in a signed 32-bit integer.
 
+// time: O(n)
+// space: O(1)
+
 /**
  * @param {string} s
  * @return {number}

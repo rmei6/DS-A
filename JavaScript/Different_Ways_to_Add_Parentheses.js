@@ -29,6 +29,9 @@
 // expression consists of digits and the operator '+', '-', and '*'.
 // All the integer values in the input expression are in the range [0, 99].
 
+// time: O(2^n)
+// space: O(n)
+
 /**
  * @param {string} expression
  * @return {number[]}

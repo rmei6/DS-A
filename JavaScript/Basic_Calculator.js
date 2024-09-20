@@ -30,6 +30,7 @@
 
 // time: O(n)
 // space: O(1)
+// possible usage:
 
 /**
  * @param {string} s

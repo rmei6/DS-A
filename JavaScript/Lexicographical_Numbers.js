@@ -33,7 +33,6 @@ var lexicalOrder = function (n) {
           dfs(i);
       }
   }
-  let stack = [];
   for (let i = 1; i <= 9 && i <= n; i++) {
       arr.push(i);
       dfs(i);

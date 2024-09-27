@@ -25,3 +25,33 @@
 // 1 <= n <= 300
 // 0 <= nums[i] <= 100
 
+// brute force
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxCoins = function(nums) {
+  const N = nums.length;
+
+const B = new Array(N + 2).fill(1);
+for (let i = 1; i <= N; i++) {
+    B[i] = nums[i - 1];
+}
+
+const dp = Array.from({ length: N + 2 }, () => Array(N + 2).fill(0));
+
+for (let length = 1; length <= N; length++) {
+    for (let left = 1; left <= N - length + 1; left++) {
+        const right = left + length - 1;
+        for (let last = left; last <= right; last++) {
+            dp[left][right] = Math.max(
+                dp[left][right],
+                dp[left][last - 1] + B[left - 1] * B[last] * B[right + 1] + dp[last + 1][right]
+            );
+        }
+    }
+}
+
+return dp[1][N];
+};

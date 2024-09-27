@@ -34,6 +34,8 @@
 // time: O(n*m)
 // space: O(min(n,m))
 
+// brute force approach
+
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2

@@ -26,6 +26,8 @@
 // 0 <= nums[i] <= 100
 
 // brute force
+// time: O(n^3)
+// space: O(n^2)
 
 /**
  * @param {number[]} nums

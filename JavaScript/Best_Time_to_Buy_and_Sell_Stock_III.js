@@ -30,6 +30,8 @@
 // 1 <= prices.length <= 105
 // 0 <= prices[i] <= 105
 
+// time and space complexity : O(n)
+
 /**
  * @param {number[]} prices
  * @return {number}

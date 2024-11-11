@@ -33,6 +33,10 @@
  * @param {number} k
  * @return {number}
  */
+
+// deque approach
+// reduces runtime
+
 var findMaxValueOfEquation = function(points, k) {
   let dq = [];
   let res =- Infinity;

@@ -28,6 +28,9 @@
 // All the strings of wordDict are unique.
 // Input is generated in a way that the length of the answer doesn't exceed 105.
 
+
+// backtracking approach
+
 /**
  * @param {string} s
  * @param {string[]} wordDict

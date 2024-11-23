@@ -51,6 +51,8 @@
 // 1 <= m, n <= 500
 // box[i][j] is either '#', '*', or '.'.
 
+// time and space: O(nm)
+
 /**
  * @param {character[][]} box
  * @return {character[][]}

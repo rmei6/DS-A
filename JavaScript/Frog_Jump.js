@@ -25,6 +25,8 @@
 // stones[0] == 0
 // stones is sorted in a strictly increasing order.
 
+// time and space: O(n^2)
+
 /**
  * @param {number[]} stones
  * @return {boolean}

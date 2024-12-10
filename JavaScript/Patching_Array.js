@@ -31,6 +31,9 @@
 // nums is sorted in ascending order.
 // 1 <= n <= 231 - 1
 
+// time: O(n)
+// space: O(1)  somehow not the lowest
+
 /**
  * @param {number[]} nums
  * @param {number} n

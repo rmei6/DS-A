@@ -23,6 +23,8 @@
 
 // 0 <= num <= 105
 
+// brute force
+
 /**
  * @param {number} num
  * @return {boolean}

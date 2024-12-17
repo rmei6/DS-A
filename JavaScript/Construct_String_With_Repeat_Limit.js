@@ -33,6 +33,9 @@
 
 // 1 <= repeatLimit <= s.length <= 105
 
+
+// two pointer approach
+
 /**
  * @param {string} s
  * @param {number} repeatLimit

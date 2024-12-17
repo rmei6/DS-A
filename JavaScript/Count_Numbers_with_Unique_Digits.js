@@ -17,6 +17,8 @@
 
 // 0 <= n <= 8
 
+//  mathematical solution
+
 /**
  * @param {number} n
  * @return {number}

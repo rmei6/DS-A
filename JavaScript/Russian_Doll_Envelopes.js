@@ -25,14 +25,19 @@
 // envelopes[i].length == 2
 // 1 <= wi, hi <= 105
 
+// Used Longest Increasing Subsequence (lis)
+// time: O(nlogn)
+// space: O(n)
+
 /**
  * @param {number[][]} envelopes
  * @return {number}
  */
 var maxEnvelopes = function(envelopes) {
+  // sort envelope
   envelopes.sort((a, b) => a[0] - b[0] || b[1] - a[1]);
 
-  const lis = [envelopes[0][1]];
+  const lis = [envelopes[0][1]];  // start lis with first height
 
   for (let i = 1; i < envelopes.length; i++) {
       const height = envelopes[i][1];
@@ -40,6 +45,7 @@ var maxEnvelopes = function(envelopes) {
       if (height > lis[lis.length - 1]) {
           lis.push(height);
       } else {
+        // find position to update lis with binary search
           let left = 0;
           let right = lis.length - 1;
           while (left < right) {

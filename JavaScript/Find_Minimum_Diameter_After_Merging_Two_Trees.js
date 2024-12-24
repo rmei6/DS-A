@@ -43,6 +43,8 @@
 // 0 <= ui, vi < m
 // The input is generated such that edges1 and edges2 represent valid trees.
 
+// dfs approach 
+
 /**
  * @param {number[][]} edges1
  * @param {number[][]} edges2

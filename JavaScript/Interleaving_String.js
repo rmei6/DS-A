@@ -40,6 +40,10 @@
 
 // Follow up: Could you solve it using only O(s2.length) additional memory space?
 
+// time: O(m * n)
+// space : O(n) with n = s2.length
+// using dynamic programming array to determine if substrings of s1 and s2 interleave
+
 /**
  * @param {string} s1
  * @param {string} s2

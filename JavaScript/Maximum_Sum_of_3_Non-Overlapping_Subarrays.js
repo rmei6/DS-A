@@ -22,6 +22,8 @@
 // 1 <= nums[i] < 216
 // 1 <= k <= floor(nums.length / 3)
 
+// used sliding window for sum calculation and dynamic programming for tracking max sums
+
 /**
  * @param {number[]} nums
  * @param {number} k

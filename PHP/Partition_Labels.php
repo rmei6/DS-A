@@ -26,6 +26,11 @@ Constraints:
 s consists of lowercase English letters.
  -->
 
+ <!--
+ used hashmapping
+ time and space: O(n) 
+  -->
+
 class Solution {
 
 /**

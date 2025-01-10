@@ -38,7 +38,7 @@ At most 2 * 104 calls will be made to pick.
 -->
 
 <!--
-used mapping to initialize array and used built-in rand function
+used mapping to initialize array and used built-in rand function (pseudo random?)
 time: O(1)
 space: O(n) 
  -->

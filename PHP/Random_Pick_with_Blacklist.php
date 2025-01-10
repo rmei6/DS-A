@@ -37,6 +37,12 @@ All the values of blacklist are unique.
 At most 2 * 104 calls will be made to pick.
 -->
 
+<!--
+used mapping to initialize array and used built-in rand function
+time: O(1)
+space: O(n) 
+ -->
+
 class Solution {
     private $mapping = [];
     private $newsize;

@@ -37,9 +37,11 @@ class Solution {
       if($k > strlen($s)){
           return false;
       }
+      <!-- mapping frequency -->
       $map = $this->charFrequency($s);
       $odd = 0;
       
+      <!-- eliminating odd frequency chars -->
       for($i = 0; $i < 26; $i++){
           if($map[$i] % 2 != 0){
               $odd++;

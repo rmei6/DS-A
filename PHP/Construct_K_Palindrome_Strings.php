@@ -26,6 +26,11 @@ Constraints:
 s consists of lowercase English letters.
 1 <= k <= 105 -->
 
+<!-- 
+time: O(n)
+space: O(1)
+-->
+
 class Solution {
 
 /**

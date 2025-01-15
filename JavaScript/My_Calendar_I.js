@@ -30,6 +30,9 @@
 // 0 <= start < end <= 109
 // At most 1000 calls will be made to book.
 
+// time and space: O(n)
+// basic for loop
+
 
 var MyCalendar = function() {
   this.calendar = [];

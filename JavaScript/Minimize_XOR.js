@@ -30,6 +30,8 @@
 
 // 1 <= num1, num2 <= 109
 
+// time and space: O(1)
+
 /**
  * @param {number} num1
  * @param {number} num2
@@ -39,13 +41,14 @@ var minimizeXor = function(num1, num2) {
   let countOnes = num2.toString(2).split('1').length - 1;
   let result = 0;
 
+  // filling bits while prioritizing num1
   for (let i = 31; i >= 0; i--) {
       if (countOnes > 0 && (num1 & (1 << i))) {
           result |= (1 << i);
           countOnes--;
       }
   }
-
+  // filling remaining bits
   for (let i = 0; i < 32; i++) {
       if (countOnes > 0 && !(result & (1 << i))) {
           result |= (1 << i);

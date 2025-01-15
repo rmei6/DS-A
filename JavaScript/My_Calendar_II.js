@@ -33,6 +33,9 @@
 // 0 <= start < end <= 109
 // At most 1000 calls will be made to book.
 
+// time and space: O(n)
+// simple for loops to check dates
+
 
 var MyCalendarTwo = function() {
   this.calendar = [];

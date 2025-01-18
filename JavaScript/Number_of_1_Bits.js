@@ -43,6 +43,9 @@
 
 // Follow up: If this function is called many times, how would you optimize it?
 
+// time and space: O(1)
+// bitwise
+
 /**
  * @param {number} n
  * @return {number}

@@ -42,6 +42,8 @@
 // 1 <= m, n <= 100
 // 1 <= grid[i][j] <= 4
 
+// mapping routes
+
 /**
  * @param {number[][]} grid
  * @return {number}

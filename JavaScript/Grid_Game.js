@@ -62,4 +62,10 @@ var gridGame = function (grid) {
     res = Math.min(res, Math.max(remainTop, remainBottom));
   }
   return res;
+
+  // short solution
+  // let num1 = grid[0], num2 = grid[1];
+  // let x = num1.reduce((a, b) => a + b), y = 0;
+  // return Math.min(...num1.map((a, i) => Math.max(x -= a, y += num2[i - 1] || 0)));
+
 }

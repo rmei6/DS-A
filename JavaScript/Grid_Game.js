@@ -41,6 +41,8 @@
 // 1 <= n <= 5 * 104
 // 1 <= grid[r][c] <= 105
 
+// time and space: O(n)
+
 /**
  * @param {number[][]} grid
  * @return {number}

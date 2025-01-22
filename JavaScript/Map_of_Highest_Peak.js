@@ -46,31 +46,45 @@
  * @return {number[][]}
  */
 var highestPeak = function(isWater) {
-  var m = isWater.length, n = isWater[0].length;
-  var heights = Array(m).fill().map(() => Array(n).fill(-1));
-  var queue = [];
+  // bfs approach, time limit exceeded
+  // var m = isWater.length, n = isWater[0].length;
+  // var heights = Array(m).fill().map(() => Array(n).fill(-1));
+  // var queue = [];
   
-  for (let i = 0; i < m; i++) {
-      for (let j = 0; j < n; j++) {
-          if (isWater[i][j] === 1) {
-              heights[i][j] = 0;
-              queue.push([i, j]);
-          }
-      }
+  // for (let i = 0; i < m; i++) {
+  //     for (let j = 0; j < n; j++) {
+  //         if (isWater[i][j] === 1) {
+  //             heights[i][j] = 0;
+  //             queue.push([i, j]);
+  //         }
+  //     }
+  // }
+  
+  // var dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  
+  // while (queue.length > 0) {
+  //     var [x, y] = queue.shift();
+  //     for (var [dx, dy] of dirs) {
+  //         var nx = x + dx, ny = y + dy;
+  //         if (nx >= 0 && nx < m && ny >= 0 && ny < n && heights[nx][ny] === -1) {
+  //             heights[nx][ny] = heights[x][y] + 1;
+  //             queue.push([nx, ny]);
+  //         }
+  //     }
+  // }
+  
+  // return heights;
+
+  // map and filter approach
+  var queue = isWater.map((row, i) => row.map((v, j) => v ? [i, j] : 0)).flat().filter(Boolean);
+  var map = isWater.map(row => row.map(_ => 0));
+  for (let n = 0; queue.length > n;) {
+      var [i, j] = queue[n++]
+      var level = map[i][j] + 1;
+      [[1, 0], [-1, 0], [0, -1], [0, 1]]
+          .map(([dx, dy])=>[i + dx, j + dy])
+          .filter(([x, y]) => 0 === isWater[x]?.[y] && !map[x][y])
+          .forEach(([x, y]) => (map[x][y] = level, queue.push([x, y])));
   }
-  
-  var dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
-  
-  while (queue.length > 0) {
-      var [x, y] = queue.shift();
-      for (var [dx, dy] of dirs) {
-          var nx = x + dx, ny = y + dy;
-          if (nx >= 0 && nx < m && ny >= 0 && ny < n && heights[nx][ny] === -1) {
-              heights[nx][ny] = heights[x][y] + 1;
-              queue.push([nx, ny]);
-          }
-      }
-  }
-  
-  return heights;
+  return map;
 };

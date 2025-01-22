@@ -39,6 +39,8 @@
 // isWater[i][j] is 0 or 1.
 // There is at least one water cell.
 
+// time and space: O(mn)
+
 /**
  * @param {number[][]} isWater
  * @return {number[][]}

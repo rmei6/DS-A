@@ -40,6 +40,9 @@
 // queries[j].length == 2
 // 0 <= rowj, colj < n
 
+// time: O(lamps + queries)
+// space: O(lamps)
+
 /**
  * @param {number} n
  * @param {number[][]} lamps

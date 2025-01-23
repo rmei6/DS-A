@@ -32,6 +32,8 @@ const isSquare = (a,b) => {
 }
 
 var numSquarefulPerms = function(nums) {
+  // edge case for array with one element
+  if (nums.length == 1) {return 0;}
   let results = 0;
   let res = [];
   let used = {};

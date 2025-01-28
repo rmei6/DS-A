@@ -33,6 +33,8 @@
 // 1 <= m, n <= 10
 // 0 <= grid[i][j] <= 10
 
+// time and space: O(mn)
+
 /**
  * @param {number[][]} grid
  * @return {number}

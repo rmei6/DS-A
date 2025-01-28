@@ -37,3 +37,26 @@
 // bookings[i].length == 3
 // 1 <= firsti <= lasti <= n
 // 1 <= seatsi <= 10^4
+
+/**
+ * @param {number[][]} bookings
+ * @param {number} n
+ * @return {number[]}
+ */
+var corpFlightBookings = function(bookings, n) {
+  let arr = Array(n + 1).fill(0);
+  
+  for(const [first, last, seatVector ] of bookings ){
+      
+      let [left, right] = [first - 1, last - 1];
+      
+      arr[ left ] += seatVector;
+      arr[ right + 1 ] -= seatVector;
+  }
+  
+  for( let i = 1; i < arr.length ; i++ ){
+      arr[ i ] += arr[ i - 1 ];
+  }
+  
+  return arr.slice(0, n);
+};

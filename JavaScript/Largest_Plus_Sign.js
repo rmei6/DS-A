@@ -27,6 +27,8 @@
 // 0 <= xi, yi < n
 // All the pairs (xi, yi) are unique.
 
+// method to make function for shape other than plus sign?
+
 /**
  * @param {number} n
  * @param {number[][]} mines

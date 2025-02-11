@@ -23,6 +23,10 @@
 
 // num1 and num2 are valid complex numbers.
 
+// used math identity
+// (a + bi)(c + di) = (ac − bd) + (ad + bc)i
+// find values of a,b,c and d and use formula
+
 /**
  * @param {string} num1
  * @param {string} num2

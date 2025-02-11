@@ -34,6 +34,8 @@
 // 1 <= part.length <= 1000
 // s​​​​​​ and part consists of lowercase English letters.
 
+// using built-in functions
+
 /**
  * @param {string} s
  * @param {string} part

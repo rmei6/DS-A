@@ -44,6 +44,8 @@
 // -1 <= grid[i][j] <= 2
 // There is exactly one starting cell and one ending cell.
 
+// counting when each block is used to track unique paths
+
 /**
  * @param {number[][]} grid
  * @return {number}

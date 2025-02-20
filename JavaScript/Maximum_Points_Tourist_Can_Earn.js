@@ -42,6 +42,9 @@
 // 0 <= travelScore[i][j] <= 100
 // travelScore[i][i] == 0
 
+// time: O(n^2 * k)
+// space: O(n)
+
 /**
  * @param {number} n
  * @param {number} k

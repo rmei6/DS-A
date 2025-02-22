@@ -38,6 +38,10 @@
 // All the pairs [prevCoursei, nextCoursei] are unique.
 // The given graph is a directed acyclic graph.
 
+// using bitmask to get prereqs
+// time: O(2^n * n)
+// space: O(2^n)
+
 
 /**
  * @param {number} n

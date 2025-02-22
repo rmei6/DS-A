@@ -30,20 +30,46 @@
 // The number of nodes in the original tree is in the range [1, 1000].
 // 1 <= Node.val <= 10^9
 
-/**
- * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
- *     this.val = (val===undefined ? 0 : val)
- *     this.left = (left===undefined ? null : left)
- *     this.right = (right===undefined ? null : right)
- * }
- */
+
+//  Definition for a binary tree node.
+ function TreeNode(val, left, right) {
+     this.val = (val===undefined ? 0 : val)
+     this.left = (left===undefined ? null : left)
+     this.right = (right===undefined ? null : right)
+ }
+
 /**
  * @param {string} traversal
  * @return {TreeNode}
  */
+// recursive regular exp approach
 var recoverFromPreorder = function(traversal, d = 1) {
   if (!traversal) return null;
   let [val, l, r] = traversal.split(new RegExp(`(?<!-)-{${d}}(?!-)`,'g'));
   return { val: +val, left: recoverFromPreorder(l, d + 1), right: recoverFromPreorder(r, d + 1)};
+};
+
+
+/**
+ * @param {string} traversal
+ * @return {TreeNode}
+ */
+
+// rebuilding tree approach 
+var recoverFromPreorder = function(traversal) {
+  for (let count = 100; count > 0; count--) {
+      traversal = traversal.replace(new RegExp("-".repeat(count), "g"), String.fromCharCode(count + 65));
+  }
+
+  var buildTree = function(parts, level) {
+      const splitParts = parts.split(String.fromCharCode(level + 65));
+      const node = new TreeNode(parseInt(splitParts[0], 10));
+
+      node.left = splitParts.length > 1 ? buildTree(splitParts[1], level + 1) : null;
+      node.right = splitParts.length > 2 ? buildTree(splitParts[2], level + 1) : null;
+
+      return node;
+  }
+
+  return buildTree(traversal, 1);
 };

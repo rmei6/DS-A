@@ -38,6 +38,7 @@
 // All the pairs [prevCoursei, nextCoursei] are unique.
 // The given graph is a directed acyclic graph.
 
+
 /**
  * @param {number} n
  * @param {number[][]} relations
@@ -45,5 +46,47 @@
  * @return {number}
  */
 var minNumberOfSemesters = function(n, relations, k) {
-    
+    // use bit masks to get prerequisites
+    const prereq = new Array(n).fill(0);
+    for (const [prev, next] of relations) {
+        prereq[next - 1] |= (1 << (prev - 1));
+    }
+
+    // array to store minimum semesters needed for each state
+    const dp = new Array(1 << n).fill(Infinity);
+    dp[0] = 0;
+
+    for (let state = 0; state < (1 << n); state++) {
+        if (dp[state] === Infinity) continue;
+
+        // Find available courses
+        let available = 0;
+        for (let course = 0; course < n; course++) {
+            if (!(state & (1 << course)) && // course not taken
+                (prereq[course] & state) === prereq[course]) { // all prerequisites met
+                available |= (1 << course);
+            }
+        }
+
+        // optimize subset generation for available courses
+        let subset = available;
+        while (subset) {
+            if (countBits(subset) <= k) {
+                dp[state | subset] = Math.min(dp[state | subset], dp[state] + 1);
+            }
+            subset = (subset - 1) & available;
+        }
+    }
+
+    return dp[(1 << n) - 1];
+};
+
+// optimized bit counting function
+var countBits = function(n) {
+    let count = 0;
+    while (n) {
+        n &= (n - 1); // clear the least significant bit
+        count++;
+    }
+    return count;
 };

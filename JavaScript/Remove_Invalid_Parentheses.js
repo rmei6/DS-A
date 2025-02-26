@@ -24,6 +24,9 @@
 // s consists of lowercase English letters and parentheses '(' and ')'.
 // There will be at most 20 parentheses in s.
 
+// time: O(2^n), still beats majority of other solutions
+// space: O(n)
+
 /**
  * @param {string} s
  * @return {string[]}

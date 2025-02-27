@@ -28,13 +28,28 @@
 
 // 0 <= tomatoSlices, cheeseSlices <= 10^7
 
+  // jumbo = 4 tomato + 1 cheese
+  // small = 2 tomato + 1 cheese
+  // 4x + 2y = tomatoSlices
+  // x + y = cheeseSlices
+  // y = cheeseSlices - x
+  // 4x + 2 * cheeseSlices - 2x = tomatoSlices
+  // x = (tomatoSlices - 2 * cheeseSlices) / 2
+
 /**
  * @param {number} tomatoSlices
  * @param {number} cheeseSlices
  * @return {number[]}
  */
 var numOfBurgers = function(tomatoSlices, cheeseSlices) {
-  let jumbo = (tomatoSlices - 2 * cheeseSlices) / 2;
-  let small = cheeseSlices - jumbo;
-  return jumbo >= 0 && small >= 0 && jumbo % 1 == 0 ? [jumbo, small] : [];
+  if (tomatoSlices == 0 && cheeseSlices == 0) return [0,0];
+  if (tomatoSlices == 0) return [];
+  if (cheeseSlices == 0) return [];
+  if (cheeseSlices > tomatoSlices / 2) return [];
+  
+  let x = (tomatoSlices - 2 * cheeseSlices) / 2;
+  if (Math.floor(x) != x) return [];
+  let y = cheeseSlices - x;
+  if(x < 0 || y < 0) return [];
+  return [x,y];
 };

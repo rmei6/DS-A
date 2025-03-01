@@ -35,6 +35,9 @@
 // 2 <= nums.length <= 2000
 // 0 <= nums[i] <= 1000
 
+// time: O(n)
+// space: O(1)
+
 /**
  * @param {number[]} nums
  * @return {number[]}

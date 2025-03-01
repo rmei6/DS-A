@@ -29,6 +29,8 @@
 // 1 <= n <= 20
 // images[i][j] is either 0 or 1.
 
+// flipping and inverting at the same time
+
 /**
  * @param {number[][]} image
  * @return {number[][]}

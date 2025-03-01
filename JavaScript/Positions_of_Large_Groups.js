@@ -43,7 +43,7 @@ var largeGroupPositions = function(s) {
   for (let i = 0; i < s.length; i++) {
       if (s[i + 1] && s[i] !== s[i + 1]) {
           if (i - start >= 2) output.push([start, i]);
-          start = i+1;
+          start = i + 1;
       }
   }
   

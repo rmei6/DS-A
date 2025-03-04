@@ -24,6 +24,8 @@
 
 // 1 <= n <= 10^7
 
+// false if digit 2 is seen in base 3 representation
+
 /**
  * @param {number} n
  * @return {boolean}

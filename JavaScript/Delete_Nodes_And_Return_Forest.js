@@ -24,6 +24,10 @@
 // to_delete.length <= 1000
 // to_delete contains distinct values between 1 and 1000.
 
+// dfs
+// time: O(n) for each node
+// space: O(n) for height of tree
+
 // Definition for a binary tree node.
  function TreeNode(val, left, right) {
      this.val = (val===undefined ? 0 : val)

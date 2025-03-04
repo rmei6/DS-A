@@ -17,6 +17,8 @@
 // 1 <= s.length <= 1000
 // s consists of lowercase English letters.
 
+// stack approach
+
 /**
  * @param {string} s
  * @return {string}

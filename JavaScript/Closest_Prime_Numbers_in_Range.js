@@ -25,6 +25,10 @@
 
 // 1 <= left <= right <= 10^6
 
+// using sieve of erathosthenes
+// time: O(right * log(log(right)))
+// space: O(right)
+
 /**
  * @param {number} left
  * @param {number} right

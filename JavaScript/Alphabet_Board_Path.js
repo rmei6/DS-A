@@ -37,6 +37,8 @@
 // 1 <= target.length <= 100
 // target consists only of English lowercase letters.
 
+// time and space: O(n)
+
 /**
  * @param {string} target
  * @return {string}

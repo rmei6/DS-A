@@ -39,6 +39,8 @@
 // s consists only of lowercase English letters and digits.
 // The input is generated such that it is possible to delete all digits.
 
+// stack
+
 /**
  * @param {string} s
  * @return {string}

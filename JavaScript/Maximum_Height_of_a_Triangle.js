@@ -52,6 +52,9 @@
 
 // 1 <= red, blue <= 100
 
+// used formula for arithmetic series and then used quadratic formula
+// time and space: O(1)
+
 /**
  * @param {number} red
  * @param {number} blue

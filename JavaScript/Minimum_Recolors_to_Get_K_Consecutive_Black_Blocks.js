@@ -33,6 +33,8 @@
 // blocks[i] is either 'W' or 'B'.
 // 1 <= k <= n
 
+// sliding window
+
 /**
  * @param {string} blocks
  * @param {number} k

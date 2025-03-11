@@ -32,6 +32,8 @@
 // 1 <= nums.length <= 100
 // -1000 <= nums[i] <= 1000
 
+// mathematical approach
+
 /**
  * @param {number[]} nums
  * @return {number}

@@ -25,6 +25,10 @@
 // 3 <= s.length <= 5 x 10^4
 // s only consists of a, b or c characters.
 
+// tracking last position
+// time: O(n)
+// space: O(1)
+
 /**
  * @param {string} s
  * @return {number}

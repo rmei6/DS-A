@@ -49,6 +49,10 @@
 // 0 <= li <= ri < nums.length
 // 1 <= vali <= 5
 
+// binary search on range of queries to get smallest valid prefix
+// use sweep line in helper function with midpoint from binary search
+// adjusts range from results of sweep line
+
 /**
  * @param {number[]} nums
  * @param {number[][]} queries

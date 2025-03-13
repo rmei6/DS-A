@@ -53,6 +53,9 @@
 // use sweep line in helper function with midpoint from binary search
 // adjusts range from results of sweep line
 
+// time: O(log(queries) * (queries + nums))
+// space: O(nums)
+
 /**
  * @param {number[]} nums
  * @param {number[][]} queries

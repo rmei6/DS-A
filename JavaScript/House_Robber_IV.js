@@ -42,14 +42,14 @@ var minCapability = function(nums, k) {
   let left = 1;
   let right = 1e9;  
   while (left < right){ 
-      let m = (left + right) >> 1;
-      let t = 0;
+      let mid = (left + right) >> 1;
       let i = 0;
+      let t = 0;
       while (i < nums.length && t < k){
-          t += nums[i] <= m;
-          i += nums[i] <= m ? 2 : 1;
+          t += nums[i] <= mid;
+          i += nums[i] <= mid ? 2 : 1;
       };
-      t < k ? left = m + 1 : right = m; 
+      t < k ? left = mid + 1 : right = mid; 
   };
   return left;  
 };

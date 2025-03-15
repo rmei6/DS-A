@@ -31,6 +31,9 @@
 // 1 <= bills.length <= 10^5
 // bills[i] is either 5, 10, or 20.
 
+// time: O(n)
+// space: O(1)
+
 /**
  * @param {number[]} bills
  * @return {boolean}

@@ -58,7 +58,7 @@
  * @return {number[]}
  */
 var minimumCost = function(n, edges, query) {
-  let parent = Array.from({ length: n }, (_, i) => i);
+  let parent = Array.from({ length: n }, (_, i) => i);  // new array method
   let minPathCost = Array(n).fill(-1);
 
   const findRoot = function(node){

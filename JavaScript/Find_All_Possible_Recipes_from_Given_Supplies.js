@@ -41,6 +41,10 @@
 // All the values of recipes and supplies combined are unique.
 // Each ingredients[i] does not contain any duplicate values.
 
+// time: O(recipes + ingredients)
+// space: O(recipes + supplies)
+// used dfs to see if recipe is possible
+
 /**
  * @param {string[]} recipes
  * @param {string[][]} ingredients

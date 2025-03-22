@@ -33,6 +33,8 @@
 // ai != bi
 // There are no repeated edges.
 
+// used helper functions to recognize completeness and distinctness
+
 /**
  * @param {number} n
  * @param {number[][]} edges

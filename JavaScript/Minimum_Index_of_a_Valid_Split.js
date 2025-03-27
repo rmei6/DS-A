@@ -43,7 +43,8 @@
 // 1 <= nums[i] <= 109
 // nums has exactly one dominant element.
 
-
+// beats 100%, math solution
+// counting with Boyer-Moore algorithm
 
 /**
  * @param {number[]} nums

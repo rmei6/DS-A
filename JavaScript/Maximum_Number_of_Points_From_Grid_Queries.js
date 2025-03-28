@@ -34,6 +34,9 @@
 // 1 <= k <= 10^4
 // 1 <= grid[i][j], queries[i] <= 10^6
 
+// time: long, almost runtime error, beats 0%
+// 
+
 /**
  * @param {number[][]} grid
  * @param {number[]} queries
@@ -58,6 +61,7 @@ var maxPoints = function (grid, queries) {
       continue;
     } else if (map.has(k)) continue;
 
+    // do bfs to get k result
     let queue = nextQueue.slice();
     nextQueue = [];
     memo[0][0] = true;

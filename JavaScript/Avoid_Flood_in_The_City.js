@@ -48,6 +48,10 @@
 // 1 <= rains.length <= 10^5
 // 0 <= rains[i] <= 10^9
 
+// time: O(n^2)
+// space: O(n)
+// hash table and binary search
+
 /**
  * @param {number[]} rains
  * @return {number[]}

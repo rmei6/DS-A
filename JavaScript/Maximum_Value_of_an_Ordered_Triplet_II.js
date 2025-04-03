@@ -30,6 +30,10 @@
 // 3 <= nums.length <= 10^5
 // 1 <= nums[i] <= 10^6
 
+// greedy approach
+// time: O(n)
+// space: O(1)
+
 /**
  * @param {number[]} nums
  * @return {number}

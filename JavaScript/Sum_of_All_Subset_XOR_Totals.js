@@ -45,6 +45,8 @@
 // 1 <= nums.length <= 12
 // 1 <= nums[i] <= 20
 
+// bit manipulation
+
 /**
  * @param {number[]} nums
  * @return {number}

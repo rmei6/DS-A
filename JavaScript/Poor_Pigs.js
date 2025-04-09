@@ -39,6 +39,11 @@
 // 1 <= buckets <= 1000
 // 1 <= minutesToDie <= minutesToTest <= 100
 
+// passed majority of testcases
+// total number of states of a pig is minutesToTest / minutesToDie + 1 as t
+// need to find minimum n such that t^n >= buckets
+// time: O(logt(b)), space: O(1)
+
 /**
  * @param {number} buckets
  * @param {number} minutesToDie

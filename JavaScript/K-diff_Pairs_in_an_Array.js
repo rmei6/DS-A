@@ -33,6 +33,8 @@
 // -10^7 <= nums[i] <= 10&7
 // 0 <= k <= 10^7
 
+// time and space: O(n)
+
 /**
  * @param {number[]} nums
  * @param {number} k
@@ -42,6 +44,7 @@ var findPairs = function(nums, k) {
 	if(nums.length === 0 || k < 0) return 0;
 	let seen = new Map();
 	let count = 0;
+  // get word count
 	for(num of nums) seen.set(num,(seen.get(num) + 1) || 1);
 	seen.forEach((value,key) => {
 		if(k === 0){

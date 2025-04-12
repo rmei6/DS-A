@@ -53,7 +53,7 @@
  * @return {number}
  */
 
-// hard coding possible due to constraints
+// hard coding possible due to constraints. also fastest
 const vals = [null,
   [1, 9, 4, 3, 2, 1, 1, 1, 1, 1],
   [2, 9, 4, 3, 2, 1, 1, 1, 1, 1],
@@ -69,3 +69,32 @@ const vals = [null,
 var countGoodIntegers = function(n, k) {
   return vals[n][k];
 };
+
+var countGoodIntegers = function(n, k) {
+  const fact = [1];
+  for (let i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;
+
+  const half = Math.floor((n + 1) / 2), start = 10 ** (half - 1), end = 10 ** half;
+  const seen = new Set();
+  let res = 0;
+
+  for (let i = start; i < end; i++) {
+      let left = i.toString(), right = left.split('').reverse().join('');
+      if (n % 2) right = right.slice(1);
+      let pal = left + right;
+      if (parseInt(pal) % k !== 0) continue;
+
+      let sorted = pal.split('').sort().join('');
+      if (seen.has(sorted)) continue;
+      seen.add(sorted);
+
+      let count = {}, total = n - (pal.match(/0/g)?.length || 0);
+      for (let d of pal) count[d] = (count[d] || 0) + 1;
+
+      let perms = total * fact[n - 1];
+      for (let f of Object.values(count)) perms /= fact[f];
+      res += perms;
+  }
+
+  return res;
+}

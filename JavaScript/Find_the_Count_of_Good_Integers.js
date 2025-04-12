@@ -70,6 +70,8 @@ var countGoodIntegers = function(n, k) {
   return vals[n][k];
 };
 
+
+// method for all inputs
 var countGoodIntegers = function(n, k) {
   const fact = [1];
   for (let i = 1; i <= n; i++) fact[i] = fact[i - 1] * i;

@@ -36,6 +36,8 @@
 // All the values of nums are unique.
 // nums is sorted in ascending order.
 
+// time and space: O(n)
+
 /**
  * @param {number[]} nums
  * @return {string[]}

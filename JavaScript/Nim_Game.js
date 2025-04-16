@@ -31,6 +31,8 @@
 
 // 1 <= n <= 2^31 - 1
 
+// best strategy is to leave opponent with 4 stones
+
 /**
  * @param {number} n
  * @return {boolean}

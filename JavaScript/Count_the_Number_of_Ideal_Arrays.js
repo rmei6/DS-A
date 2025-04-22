@@ -38,3 +38,39 @@
 // 2 <= n <= 10^4
 // 1 <= maxValue <= 10^4
 
+/**
+ * @param {number} n
+ * @param {number} maxValue
+ * @return {number}
+ */
+var idealArrays = function(n, maxValue) {
+  const MOD = 1e9 + 7;
+  let ans = maxValue;
+  let freq = {};
+  for (let x = 1; x <= maxValue; x++) {
+      freq[x] = 1;
+  }
+
+  function comb(n, k) {
+      let res = 1;
+      for (let i = 0; i < k; i++) {
+          res = res * (n - i) / (i + 1);
+      }
+      return Math.round(res);
+  }
+
+  for (let k = 1; k < n; k++) {
+      let temp = {};
+      for (let x in freq) {
+          x = parseInt(x);
+          for (let m = 2; m * x <= maxValue; m++) {
+              let next = m * x;
+              ans = (ans + comb(n - 1, k) * freq[x]) % MOD;
+              temp[next] = (temp[next] || 0) + freq[x];
+          }
+      }
+      freq = temp;
+  }
+
+  return ans;
+};

@@ -24,6 +24,8 @@
 // 1 <= nums.length <= 5 * 10^5
 // -2^31 <= nums[i] <= 2^31 - 1
 
+// 2 pointer system
+
 /**
  * @param {number[]} nums
  * @return {boolean}

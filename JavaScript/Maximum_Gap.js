@@ -21,6 +21,9 @@
 // 1 <= nums.length <= 10^5
 // 0 <= nums[i] <= 10^9
 
+// bucket sort
+// time and space: O(n), fitting requirements
+
 /**
  * @param {number[]} nums
  * @return {number}

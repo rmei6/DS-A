@@ -23,6 +23,7 @@
 
 // bucket sort
 // time and space: O(n), fitting requirements
+// good thinking
 
 /**
  * @param {number[]} nums

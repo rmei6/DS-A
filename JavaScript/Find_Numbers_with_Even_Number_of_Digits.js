@@ -43,3 +43,14 @@ var findNumbers = function(nums) {
 
   return res;    
 };
+
+// math solution
+var findNumbers = function(nums) {
+  let res = 0;
+
+  for (let i of nums) {
+      res += Math.floor(Math.log10(i) + 1) % 2 == 0;
+  }
+
+  return res;
+};

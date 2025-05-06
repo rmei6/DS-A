@@ -28,6 +28,8 @@
 // 0 <= nums[i] < nums.length
 // The elements in nums are distinct.
 
+// simple use of map function
+
 /**
  * @param {number[]} nums
  * @return {number[]}

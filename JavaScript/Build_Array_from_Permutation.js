@@ -35,5 +35,16 @@
  * @return {number[]}
  */
 var buildArray = function(nums) {
-  return nums.map(value => nums[value]);
+  // map function solution
+  // return nums.map(value => nums[value]);
+
+  // bit manipulation
+  let n = nums.length;
+    let ans = new Array(n);
+    
+    for (let i = 0; i < n; i++) {
+        ans[i] = nums[nums[i]];
+    }
+    
+    return ans;
 };

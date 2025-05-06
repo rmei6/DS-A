@@ -30,3 +30,30 @@
 // bottoms.length == tops.length
 // 1 <= tops[i], bottoms[i] <= 6
 
+/**
+ * @param {number[]} tops
+ * @param {number[]} bottoms
+ * @return {number}
+ */
+var minDominoRotations = function(tops, bottoms) {
+  function minRotations(A, B) {
+      let res = Infinity;
+      for (let x = 1; x <= 6; x++) {
+          let count = 0;
+          let valid = true;
+          for (let i = 0; i < A.length; i++) {
+              if (A[i] === x) continue;
+              else if (B[i] === x) count++;
+              else {
+                  valid = false;
+                  break;
+              }
+          }
+          if (valid) res = Math.min(res, count);
+      }
+      return res;
+  }
+
+  const res = Math.min(minRotations(tops, bottoms), minRotations(bottoms, tops));
+  return res === Infinity ? -1 : res;
+};

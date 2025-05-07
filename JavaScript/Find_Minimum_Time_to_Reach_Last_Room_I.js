@@ -47,6 +47,9 @@
 // 2 <= m == moveTime[i].length <= 50
 // 0 <= moveTime[i][j] <= 10^9
 
+// time: O(nmlog(nm))
+// space: O(nm)
+
 /**
  * @param {number[][]} moveTime
  * @return {number}

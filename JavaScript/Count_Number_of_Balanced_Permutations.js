@@ -45,6 +45,9 @@
 // 2 <= num.length <= 80
 // num consists of digits '0' to '9' only.
 
+// dynamic programming and combinatorics
+// balancing sums of odds and even indices and switching nums around
+
 /**
  * @param {string} num
  * @return {number}

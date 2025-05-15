@@ -99,3 +99,32 @@ var myAtoi = function (s) {
     }
     return 0;
 };
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+// parsing by character type
+var myAtoi = function(s) {
+    // eliminate whitespace
+    s = s.trim();
+    if (s.length === 0) return 0;
+
+    // going through signs
+    let sign = 1, i = 0, res = 0;
+
+    if (s[i] === '-') { sign = -1; i++; }
+    else if (s[i] === '+') { i++; }
+
+    // numerics
+    while (i < s.length && s[i] >= '0' && s[i] <= '9') {
+        res = res * 10 + (s[i] - '0');
+        // overflow condition
+        if (sign * res > 2**31 - 1) return 2**31 - 1;
+        if (sign * res < -(2**31)) return -(2**31);
+
+        i++;
+    }
+
+    return sign * res;
+};

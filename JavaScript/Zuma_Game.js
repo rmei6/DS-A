@@ -51,6 +51,9 @@
  * @param {string} hand
  * @return {number}
  */
+
+// dijkstra's approach
+// runtime exceeded, passed 37/56
 var findMinStep = function(board, hand) { 
     var map = {};
     var recursion = function (board, hand) {

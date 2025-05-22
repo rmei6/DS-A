@@ -51,3 +51,45 @@
 // 1 <= queries.length <= 10^5
 // queries[i].length == 2
 // 0 <= li <= ri < nums.length
+
+/**
+ * @param {number[]} nums
+ * @param {number[][]} queries
+ * @return {number}
+ */
+var maxRemoval = function(nums, queries) {
+    const n = nums.length;
+    const m = queries.length;
+    const workload = new Array(n + 1).fill(0);
+
+    queries.sort((a, b) => a[0] - b[0]);
+    const available = [];
+    let qIndex = 0;
+
+    for (let time = 0; time < n; time++) {
+        if (time > 0) {
+            workload[time] += workload[time - 1];
+        }
+
+        while (qIndex < m && queries[qIndex][0] === time) {
+            available.push(queries[qIndex][1]);
+            qIndex++;
+        }
+
+        available.sort((a, b) => b - a);
+
+        while (workload[time] < nums[time]) {
+            if (available.length === 0 || available[0] < time) {
+                return -1;
+            }
+
+            workload[time]++;
+            const endTime = available.shift();
+            if (endTime + 1 < workload.length) {
+                workload[endTime + 1]--;
+            }
+        }
+    }
+
+    return available.length;
+}

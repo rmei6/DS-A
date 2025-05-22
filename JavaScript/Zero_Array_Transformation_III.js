@@ -52,6 +52,8 @@
 // queries[i].length == 2
 // 0 <= li <= ri < nums.length
 
+// good approach, but runtime too long
+
 /**
  * @param {number[]} nums
  * @param {number[][]} queries

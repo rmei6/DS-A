@@ -53,6 +53,7 @@
  */
 
 // bit manipulation
+// time: O(n), space: O(1)
 
 var maximumValueSum = function(nums, k, edges) {
     // sum of Math.max(x, x ^ k)

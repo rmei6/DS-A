@@ -95,3 +95,39 @@ var maxRemoval = function(nums, queries) {
 
     return available.length;
 }
+
+/**
+ * @param {number[]} nums
+ * @param {number[][]} queries
+ * @return {number}
+ */
+
+// greedy and heap
+
+var maxRemoval = function(nums, queries) {
+    const g = _.groupBy(queries, x => x[0]);
+    const h = new MaxPriorityQueue();
+    const d = new Int32Array(nums.length + 1);
+    let o = 0;
+
+    const assign = (x, i) => {
+        if (o >= x) return true;
+        if (h.isEmpty() || h.front() < i) return false;
+        o++;
+        d[h.front() + 1]--;
+        h.pop();
+        return assign(x, i);
+    };
+
+    for (let i = 0; i < nums.length; i++) {
+        o += d[i];
+        if (g[i]) {
+            g[i].forEach(y => h.enqueue(y[1]));
+        }
+        if (!assign(nums[i], i)) {
+            return -1;
+        }
+    }
+    
+    return h.size();
+};

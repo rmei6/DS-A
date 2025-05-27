@@ -43,8 +43,13 @@
  * @param {number} m
  * @return {number}
  */
+
+// math solution
+
 var differenceOfSums = function(n, m) {
+    // nums in dividing
     let x = Math.floor(n / m);
+    // sum from 1-n 
     let y = x * (x + 1) / 2;
     return ((n * (n + 1) / 2) - y * m) - (y * m);
 };

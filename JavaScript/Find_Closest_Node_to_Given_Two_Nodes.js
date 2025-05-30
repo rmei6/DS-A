@@ -34,6 +34,8 @@
 // edges[i] != i
 // 0 <= node1, node2 < n
 
+// complexities: O(n)
+
 /**
  * @param {number[]} edges
  * @param {number} node1

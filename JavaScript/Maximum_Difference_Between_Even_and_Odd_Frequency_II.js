@@ -56,10 +56,12 @@ var maxDifference = function(s, k){
     const length = s.length;
     let result = -Infinity;
 
+    // looping through digit pairs, 0-4
     for (let first = 0; first < 5; first++) {
         for (let second = 0; second < 5; second++) {
             if (first === second) continue;
 
+            // tracking different counts, parity states, count of second digits
             const diff = Array(length + 1).fill(0);
             const parityA = Array(length + 1).fill(0);
             const parityB = Array(length + 1).fill(0);
@@ -73,11 +75,13 @@ var maxDifference = function(s, k){
                 countB[i] = countB[i - 1] + (digit === second ? 1 : 0);
             }
 
+            // storing BITs, each with min prefix difference for each digit pair
             const storage = Array.from({ length: 2 }, () =>
                 Array.from({ length: 2 }, () => new MinBIT(length + 1))
             );
 
             for (let j = 0; j <= length; j++) {
+                // valid starting point
                 if (j >= k) {
                     const back = j - k;
                     const pA = parityA[back];

@@ -42,6 +42,8 @@
  * @param {Function} fn
  * @return {number[]}
  */
+
+// foreach method
 var filter = function(arr, fn) {
    let newArray = [];
    arr.forEach((x,i) => {
@@ -50,4 +52,30 @@ var filter = function(arr, fn) {
       }
    });
    return newArray;
+};
+
+// mapping
+var filter = function(arr, fn) {
+   let newArray = [];
+   arr.map((x,i) => {
+      if(fn(x,i)){
+         newArray.push(x);
+      }
+   });
+   return newArray;
+};
+
+// reduce
+var filter = function(arr, fn) {
+   return arr.reduce((newArray, x, i) => {
+      if(fn(x, i)){
+         newArray.push(x);
+      }
+      return newArray;
+   }, []);
+};
+
+// flatmap
+var filter = function(arr, fn) {
+    return arr.flatMap((x, i) => fn(x, i) ? [x] : []);
 };

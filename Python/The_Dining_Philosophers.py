@@ -42,6 +42,7 @@
 
 
 from threading import Lock
+from collections.abc import Callable
 
 class DiningPhilosophers:
     

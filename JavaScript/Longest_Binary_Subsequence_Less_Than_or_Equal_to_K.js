@@ -36,6 +36,7 @@
  * @return {number}
  */
 var longestSubsequence = function (s, k) {
+    // greedy approach
     let sum = 0;
     let count = 0;
     let bits = Math.log2(k) + 1;

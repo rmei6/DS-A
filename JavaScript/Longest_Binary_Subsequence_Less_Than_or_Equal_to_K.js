@@ -30,3 +30,25 @@
 // s[i] is either '0' or '1'.
 // 1 <= k <= 10^9
 
+/**
+ * @param {string} s
+ * @param {number} k
+ * @return {number}
+ */
+var longestSubsequence = function (s, k) {
+    let sum = 0;
+    let count = 0;
+    let bits = Math.log2(k) + 1;
+    for (let i = 0; i < s.length; i++) {
+        const ch = s[s.length - 1 - i];
+        if (ch === "1") {
+            if (i < bits && sum + (1 << i) <= k) {
+                sum += 1 << i;
+                count++;
+            }
+        } else {
+            count++;
+        }
+    }
+    return count;
+};

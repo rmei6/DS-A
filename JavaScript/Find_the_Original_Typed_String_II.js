@@ -42,3 +42,69 @@
 // word consists only of lowercase English letters.
 // 1 <= k <= 2000
 
+/**
+ * @param {string} word
+ * @param {number} k
+ * @return {number}
+ */
+
+var possibleStringCount = function(word, k) {
+
+    const MOD = 1000000007;
+    const n = word.length;
+    if (n === 0) return 0;
+    if ( k === n ) return 1;
+    if ( k > n ) return 0;
+
+    let runs = [];
+    let cnt = 1;
+    for (let i = 1; i < n; i++) {
+        if (word[i] === word[i - 1]) {
+            cnt++;
+        } else {
+            runs.push(cnt);
+            cnt = 1;
+        }
+    }
+    runs.push(cnt);
+
+    let totalWays = 1;
+    for (let runLength of runs) {
+        totalWays = (totalWays * runLength) % MOD;
+    }
+
+    if (k <= runs.length) return totalWays;
+
+    const E = k - 1 - runs.length;
+    if (E < 0) return totalWays;
+
+    let dp = new Uint32Array(E + 1);
+    dp[0] = 1;
+
+    for (let runLength of runs) {
+        const maxAdd = runLength - 1;
+        if (maxAdd === 0) continue;
+
+        // Build prefix sum
+        let prefixSum = new Uint32Array(E + 1);
+        let sum = 0;
+        for (let s = 0; s <= E; s++) {
+            sum = (sum + dp[s]) % MOD;
+            prefixSum[s] = sum;
+        }
+
+        let newDp = new Uint32Array(E + 1);
+        for (let s = 0; s <= E; s++) {
+            let val = prefixSum[s];
+            if (s - maxAdd - 1 >= 0) {
+                val = (val - prefixSum[s - maxAdd - 1] + MOD) % MOD;
+            }
+            newDp[s] = val;
+        }
+        dp = newDp;
+    }
+
+    let badWays = dp.reduce((sum, val) => (sum + val) % MOD, 0);
+    let ans = (totalWays - badWays + MOD) % MOD;
+    return ans;
+};

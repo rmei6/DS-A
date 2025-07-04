@@ -53,6 +53,10 @@
  * @param {number[]} operations
  * @return {character}
  */
+
+// used recursion to allow early stops
+// unable to use bitwise operators due to constraints exceeding javascript limits
+
 kthCharacter = (k, o,
     $ = i => k && o[i] * k % 2 + $(i + 1, k = Math.floor(k / 2))
 ) => ($(0, --k) % 26 + 10).toString(36)

@@ -68,6 +68,12 @@
 // 0 <= startTime[i] < endTime[i] <= eventTime
 // endTime[i] <= startTime[i + 1] where i lies in the range [0, n - 2].
 
+// did two passes from opposite directions
+// either pushed meeting to merge free time or placed meeting in another time slot
+
+// time: O(2n) -> O(n)
+// space: O(1)
+
 /**
  * @param {number} eventTime
  * @param {number[]} startTime

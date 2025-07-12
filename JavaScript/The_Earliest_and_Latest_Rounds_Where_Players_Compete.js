@@ -41,10 +41,15 @@
 // 2 <= n <= 28
 // 1 <= firstPlayer < secondPlayer <= n
 
+// reducing branches by mirroring both sides when one side is bigger
+// time: best case, O(n^3), worst case, O(2^n)
+// space: O(n)
+
 const earliestAndLatest = (n, firstPlayer, secondPlayer) => {
     let left = Math.min(firstPlayer, secondPlayer);
     let right = Math.max(firstPlayer, secondPlayer);
 
+    // base cases in which players face immediately or there isn't enough space for variation
     if (left + right === n + 1) return [1, 1];
     if (n === 3 || n === 4) return [2, 2];
 

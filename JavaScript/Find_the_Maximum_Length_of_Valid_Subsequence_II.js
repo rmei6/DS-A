@@ -32,3 +32,30 @@
 // 2 <= nums.length <= 10^3
 // 1 <= nums[i] <= 10^7
 // 1 <= k <= 10^3
+
+// time; O(nums * k)
+// space: O(k)
+
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+var maximumLength = function(nums, k) {
+    let res = 2;
+    const n = nums.length;
+    if (k === 1) return n;
+
+    const modArr = nums.map(x => x % k);
+    
+    for (let i = 0; i < k; i++) {
+        const dp = new Array(k).fill(0);
+        modArr.forEach(mod => {
+            const pos = (i - mod + k) % k;
+            dp[mod] = dp[pos] + 1;
+            res = Math.max(res, dp[mod]);
+        });
+    }
+
+    return res;
+};

@@ -38,6 +38,10 @@
 // 1 <= n <= 10^5
 // 1 <= nums[i] <= 10^5
 
+// time: O(nlog(n)), space: O(n)
+// used heap to get min and max sum of subsequences
+// compared calculated mins and maxes
+
 /**
  * @param {number[]} nums
  * @return {number}

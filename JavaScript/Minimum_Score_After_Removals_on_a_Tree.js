@@ -46,6 +46,9 @@
 // ai != bi
 // edges represents a valid tree.
 
+// used dfs and xor for bit manipulation
+// time: O(n^3), space: O(n)
+
 /**
  * @param {number[]} nums
  * @param {number[][]} edges

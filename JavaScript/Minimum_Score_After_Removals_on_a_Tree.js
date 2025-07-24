@@ -46,3 +46,40 @@
 // ai != bi
 // edges represents a valid tree.
 
+/**
+ * @param {number[]} nums
+ * @param {number[][]} edges
+ * @return {number}
+ */
+var minimumScore = function(nums, edges) {
+    const n = nums.length, g = Array.from({ length: n }, () => []);
+    edges.forEach(([u, v]) => (g[u].push(v), g[v].push(u)));
+
+    const xor = Array(n), inT = Array(n), outT = Array(n);
+    let time = 0;
+    const dfs = (u, p) => {
+        xor[u] = nums[u];
+        inT[u] = time++;
+        for (let v of g[u]) if (v !== p) {
+            dfs(v, u);
+            xor[u] ^= xor[v];
+        }
+        outT[u] = time++;
+    };
+    dfs(0, -1);
+
+    const isAncestor = (u, v) => inT[u] <= inT[v] && outT[v] <= outT[u];
+    let res = Infinity;
+
+    for (let i = 1; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            let [a, b] = [i, j];
+            if (isAncestor(a, b)) [a, b] = [b, a];
+
+            let x = xor[a], y = isAncestor(b, a) ? xor[b] ^ xor[a] : xor[b];
+            let z = xor[0] ^ x ^ y;
+            res = Math.min(res, Math.max(x, y, z) - Math.min(x, y, z));
+        }
+    }
+    return res;
+};

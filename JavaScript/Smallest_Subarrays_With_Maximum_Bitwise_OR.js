@@ -41,6 +41,8 @@
  * @param {number[]} nums
  * @return {number[]}
  */
+
+// sparse table and binary search
 var smallestSubarrays = function(nums){
     const n = nums.length;
     const log = new Array(n + 1).fill(0);
@@ -92,6 +94,8 @@ var smallestSubarrays = function(nums){
  * @param {number[]} nums
  * @return {number[]}
  */
+
+// buffer array and sliding window
 var smallestSubarrays = function(nums) {
     const n = nums.length
 

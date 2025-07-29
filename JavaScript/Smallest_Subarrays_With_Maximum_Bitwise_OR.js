@@ -87,3 +87,54 @@ var smallestSubarrays = function(nums){
 
     return res;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var smallestSubarrays = function(nums) {
+    const n = nums.length
+
+    const res = new Array(n).fill(0)
+    const buffer = new Array(32).fill(0)
+
+    let r = n - 1
+    for (let i = n - 1; i >= 0; i--) {
+
+        let num = nums[i]
+        let index = 31
+        while (num > 0) {
+            if (num & 1) buffer[index]++
+            num >>= 1
+            index--
+        }
+
+        while (r > i && needShrink(buffer, nums[r])) {
+            r--
+        }
+
+        res[i] = r - i + 1
+    }
+
+    return res
+}
+
+
+function needShrink(buffer, num) {
+    const arr = buffer.slice()
+    let index = 31
+
+    while (num > 0) {
+        if (num & 1) {
+            if (--arr[index] <= 0) return false
+        }
+        index--
+        num >>= 1
+    }
+
+    for (let i = 0; i < arr.length; i++) {
+        buffer[i] = arr[i]
+    }
+
+    return true
+}

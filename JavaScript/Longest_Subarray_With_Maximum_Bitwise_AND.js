@@ -61,3 +61,31 @@ var longestSubarray = function(nums) {
 
   return length;
 };
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+
+// better single pass approach
+var longestSubarray = function(nums) {
+    let max_num = 0;
+    let i = 0;
+    let k = 0;
+    let ans = 0;
+    for (i = nums.length - 1; i >= 0; i--) {
+        if (nums[i] > max_num) {
+            max_num = nums[i];
+            k = 1;
+            ans = 1;
+        } else if (nums[i] == max_num) {
+            k++;
+            if (k > ans) {
+                ans = k;
+            }
+        } else {
+            k = 0;
+        }
+    };
+    return ans;
+};

@@ -57,6 +57,8 @@
 -- | 6    | 1  | Winston   | 500    | ___          |
 -- +------+----+-----------+--------+--------------+
 
+-- useful for calculating elevator capacity or lifeboat capacity
+
 # Write your MySQL query statement below
 SELECT person_name
 FROM (

@@ -56,6 +56,7 @@ var numOfUnplacedFruits = function(fruits, baskets) {
     const n = baskets.length;
     const seg = new Array(4 * n).fill(0);
 
+    // helper function for building tree
     function build(idx, l, r) {
         if (l === r) {
             seg[idx] = baskets[l];
@@ -69,6 +70,7 @@ var numOfUnplacedFruits = function(fruits, baskets) {
         return seg[idx];
     }
 
+    // helper function for placing fruit
     function place(idx, l, r, val) {
         if (seg[idx] < val) return false;
         if (l === r) {

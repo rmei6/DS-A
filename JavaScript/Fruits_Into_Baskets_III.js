@@ -43,6 +43,10 @@
 // 1 <= n <= 10^5
 // 1 <= fruits[i], baskets[i] <= 10^9
 
+// used segment tree to get largest basket and used left-first approach
+// time: O(nlogn), n for tree and logn for placing fruit
+// space: O(4n) -> O(n)
+
 /**
  * @param {number[]} fruits
  * @param {number[]} baskets

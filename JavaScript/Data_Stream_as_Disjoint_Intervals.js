@@ -35,6 +35,8 @@
 // At most 3 * 10^4 calls will be made to addNum and getIntervals.
 // At most 10^2 calls will be made to getIntervals.
 
+// time: O(logn), space: O(n)
+
 
 var SummaryRanges = function() {
     this.intervals = [[-Infinity, -Infinity],[Infinity, Infinity]];

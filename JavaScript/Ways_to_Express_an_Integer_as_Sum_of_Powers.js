@@ -28,6 +28,8 @@
 // 1 <= n <= 300
 // 1 <= x <= 5
 
+// time: O(n^(n + (1/x))), space: O(n)
+
 /**
  * @param {number} n
  * @param {number} x

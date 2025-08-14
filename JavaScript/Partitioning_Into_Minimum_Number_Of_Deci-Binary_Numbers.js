@@ -25,6 +25,8 @@
 // n consists of only digits.
 // n does not contain any leading zeros and represents a positive integer.
 
+// time: O(n), space: O(1)
+
 /**
  * @param {string} n
  * @return {number}

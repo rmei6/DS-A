@@ -33,6 +33,9 @@
 // 3 <= num.length <= 1000
 // num only consists of digits.
 
+// time: O(n), space: O(1)
+
+
 /**
  * @param {string} num
  * @return {string}

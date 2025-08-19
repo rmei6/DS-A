@@ -33,6 +33,8 @@
 // 1 <= nums.length <= 10^5
 // -109 <= nums[i] <= 10^9
 
+// time: O(n), space: O(1)
+
 /**
  * @param {number[]} nums
  * @return {number}

@@ -36,6 +36,8 @@
 // grid[i][j] is either 0 or 1.
 // The input is generated such that there is at least one 1 in grid.
 
+// time: O(rows * columns), space: O(1)
+
 /**
  * @param {number[][]} grid
  * @return {number}

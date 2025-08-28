@@ -52,6 +52,9 @@
 // 1 <= n <= 10
 // -105 <= grid[i][j] <= 10^5
 
+// reading diagonals and sorting them
+// time: O(mnlog(min(m,n))), space: O(min(m,n))
+
 /**
  * @param {number[][]} grid
  * @return {number[][]}
